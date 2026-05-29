@@ -104,11 +104,11 @@ function ControlsBar({ state, dense }) {
 }
 
 // sort-header helper
-function SortTh({ keyName, sortKey, sortDir, onSort, children, align = "left", title }) {
+function SortTh({ keyName, sortKey, sortDir, onSort, children, align = "left", title, className = "" }) {
   const active = sortKey === keyName;
   return (
     <th
-      className={`sort-th sort-${align} ${active ? "is-active" : ""}`}
+      className={`sort-th sort-${align} ${active ? "is-active" : ""} ${className}`.trim()}
       onClick={() => onSort(keyName)}
       title={title || "點擊排序 · click to sort"}
     >
@@ -181,9 +181,9 @@ function TableDense({ onPick }) {
                 </td>
                 <td className="num">{r.year}</td>
                 <td className={`num ${isBest(r, "swimSec") ? "best" : ""}`}>{legCell(r, "swimSec", "swim", s.paceMode)}</td>
-                <td className="num dim">{legCell(r, "t1Sec", null, false)}</td>
+                <td className="num dim vb-col-trans">{legCell(r, "t1Sec", null, false)}</td>
                 <td className={`num ${isBest(r, "bikeSec") ? "best" : ""}`}>{legCell(r, "bikeSec", "bike", s.paceMode)}</td>
-                <td className="num dim">{legCell(r, "t2Sec", null, false)}</td>
+                <td className="num dim vb-col-trans">{legCell(r, "t2Sec", null, false)}</td>
                 <td className={`num ${isBest(r, "runSec") ? "best" : ""}`}>{legCell(r, "runSec", "run", s.paceMode)}</td>
                 <td className={`num total-cell ${isBest(r, "overallSec") ? "best" : ""}`}>{window.fmtTime(r.overallSec)}</td>
               </tr>
@@ -271,9 +271,9 @@ function TablePodium({ onPick, mode = "canvas" }) {
               <SortTh keyName="name"       sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort}><span className="th-zh">選手</span><span className="th-en">Athlete</span></SortTh>
               <SortTh keyName="race"       sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort}><span className="th-zh">賽事</span><span className="th-en">Race · Year</span></SortTh>
               <SortTh keyName="swimSec"    sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right"><span className="th-zh">游泳</span><span className="th-en">Swim · 3.8km</span></SortTh>
-              <SortTh keyName="t1Sec"      sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right"><span className="th-zh">T1</span><span className="th-en">Trans-1</span></SortTh>
+              <SortTh keyName="t1Sec"      sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right" className="vb-col-trans"><span className="th-zh">T1</span><span className="th-en">Trans-1</span></SortTh>
               <SortTh keyName="bikeSec"    sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right"><span className="th-zh">自行車</span><span className="th-en">Bike · 180km</span></SortTh>
-              <SortTh keyName="t2Sec"      sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right"><span className="th-zh">T2</span><span className="th-en">Trans-2</span></SortTh>
+              <SortTh keyName="t2Sec"      sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right" className="vb-col-trans"><span className="th-zh">T2</span><span className="th-en">Trans-2</span></SortTh>
               <SortTh keyName="runSec"     sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right"><span className="th-zh">跑步</span><span className="th-en">Run · 42.2km</span></SortTh>
               <SortTh keyName="overallSec" sortKey={s.sortKey} sortDir={s.sortDir} onSort={s.handleSort} align="right"><span className="th-zh">總成績</span><span className="th-en">Total</span></SortTh>
             </tr>
@@ -291,9 +291,9 @@ function TablePodium({ onPick, mode = "canvas" }) {
                   <div className="race-en">{window.RACES[r.race]?.en}</div>
                 </td>
                 <td className={`num ${isBest(r, "swimSec") ? "best" : ""}`}>{legCell(r, "swimSec", "swim", s.paceMode)}</td>
-                <td className="num dim">{legCell(r, "t1Sec", null, false)}</td>
+                <td className="num dim vb-col-trans">{legCell(r, "t1Sec", null, false)}</td>
                 <td className={`num ${isBest(r, "bikeSec") ? "best" : ""}`}>{legCell(r, "bikeSec", "bike", s.paceMode)}</td>
-                <td className="num dim">{legCell(r, "t2Sec", null, false)}</td>
+                <td className="num dim vb-col-trans">{legCell(r, "t2Sec", null, false)}</td>
                 <td className={`num ${isBest(r, "runSec") ? "best" : ""}`}>{legCell(r, "runSec", "run", s.paceMode)}</td>
                 <td className={`num total-cell ${isBest(r, "overallSec") ? "best" : ""}`}>{window.fmtTime(r.overallSec)}</td>
               </tr>
