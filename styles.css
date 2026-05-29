@@ -832,6 +832,11 @@ a:hover { text-decoration: underline; }
 }
 
 /* ============================================================ */
+/* MOBILE CARD LIST — hidden on desktop, shown on mobile          */
+/* ============================================================ */
+.vb-cards { display: none; }
+
+/* ============================================================ */
 /* RESPONSIVE — tablet (≤ 1024px) + mobile (≤ 700px)             */
 /* ============================================================ */
 
@@ -914,22 +919,113 @@ a:hover { text-decoration: underline; }
   }
   .ctl-toggle button { flex: 1; text-align: center; }
 
-  /* Table: hide T1/T2 columns; tighter padding; allow horizontal scroll if still wide */
-  .vb-tbl-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  /* Table → card list */
+  .vb-tbl-wrap { display: none; }
+  .vb-cards {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
-  .vb-tbl .vb-col-trans { display: none; }
-  .vb-tbl thead th { padding: 10px 8px; font-size: 10px; }
-  .vb-tbl td { padding: 10px 8px; }
-  .vb-tbl { font-size: 13px; }
-  .num { font-size: 13px; }
-  .name-zh { font-size: 14px; }
-  .name-en { font-size: 11px; }
-  .race-zh { font-size: 13px; }
-  .race-en { font-size: 10px; }
-  .th-zh { font-size: 12px; }
-  .th-en { font-size: 9px; }
+  .vb-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 14px 14px 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.1s ease;
+  }
+  .vb-card:active { background: var(--accent-tint); }
+  .vb-card-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: start;
+  }
+  .vb-card-rank {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 500;
+    padding-top: 1px;
+    min-width: 28px;
+  }
+  .vb-card-id { min-width: 0; }
+  .vb-card-name {
+    font-family: var(--font-zh);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .vb-card-name-en {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-top: 3px;
+  }
+  .vb-card-race {
+    margin-top: 5px;
+    font-family: var(--font-zh);
+    font-size: 12px;
+    color: var(--ink-2);
+  }
+  .vb-card-race-sep { color: var(--mute-2); margin: 0 5px; }
+  .vb-card-total { text-align: right; min-width: 0; }
+  .vb-card-total-time {
+    font-family: var(--font-mono);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .vb-card-total-time.best { color: var(--accent); }
+  .vb-card-total-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .vb-card-splits {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    gap: 6px;
+  }
+  .vb-card-split { display: flex; flex-direction: column; gap: 3px; }
+  .vb-card-split-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .vb-card-split-time {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .vb-card-split-time.best { color: var(--accent); font-weight: 600; }
+  .vb-card-empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 14px;
+    font-size: 13px;
+  }
 
   /* Footer */
   .page-foot {

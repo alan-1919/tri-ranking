@@ -263,6 +263,58 @@ function TablePodium({ onPick, mode = "canvas" }) {
         </div>
       )}
 
+      {/* Mobile card list — hidden on desktop via CSS, shown ≤ 700px */}
+      <ul className="vb-cards">
+        {rest.map((r) => (
+          <li key={r.rank} className="vb-card" onClick={() => onPick(r)}>
+            <div className="vb-card-head">
+              <span className="vb-card-rank">{String(r.rank).padStart(2, "0")}</span>
+              <div className="vb-card-id">
+                <div className="vb-card-name">
+                  {r.name}
+                  <span className="flag-pill sm">{r.country}</span>
+                </div>
+                {r.nameEn && <div className="vb-card-name-en">{r.nameEn}</div>}
+                <div className="vb-card-race">
+                  <span>{window.RACES[r.race]?.zh || r.race}</span>
+                  <span className="vb-card-race-sep">·</span>
+                  <span>{r.year}</span>
+                </div>
+              </div>
+              <div className="vb-card-total">
+                <div className={`vb-card-total-time ${isBest(r, "overallSec") ? "best" : ""}`}>
+                  {window.fmtTime(r.overallSec)}
+                </div>
+                <div className="vb-card-total-label">TOTAL</div>
+              </div>
+            </div>
+            <div className="vb-card-splits">
+              <div className="vb-card-split">
+                <div className="vb-card-split-label">SWIM</div>
+                <div className={`vb-card-split-time ${isBest(r, "swimSec") ? "best" : ""}`}>
+                  {s.paceMode ? window.fmtPaceFor("swim", r.swimSec) : window.fmtTime(r.swimSec)}
+                </div>
+              </div>
+              <div className="vb-card-split">
+                <div className="vb-card-split-label">BIKE</div>
+                <div className={`vb-card-split-time ${isBest(r, "bikeSec") ? "best" : ""}`}>
+                  {s.paceMode ? window.fmtPaceFor("bike", r.bikeSec) : window.fmtTime(r.bikeSec)}
+                </div>
+              </div>
+              <div className="vb-card-split">
+                <div className="vb-card-split-label">RUN</div>
+                <div className={`vb-card-split-time ${isBest(r, "runSec") ? "best" : ""}`}>
+                  {s.paceMode ? window.fmtPaceFor("run", r.runSec) : window.fmtTime(r.runSec)}
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+        {rest.length === 0 && podium.length === 0 && (
+          <li className="vb-card vb-card-empty">無符合條件之紀錄 · No matching records</li>
+        )}
+      </ul>
+
       <div className="vb-tbl-wrap">
         <table className="vb-tbl">
           <thead>
