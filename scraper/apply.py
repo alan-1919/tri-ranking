@@ -37,7 +37,7 @@ RACE_CODE_BY_SLUG = {
     "2024042701": "CT",
     "2025041303": "IM Penghu",
 }
-SHORTENED_SLUGS = {"2025041303", "2024042701"}
+SHORTENED_SLUGS = {"2025041303", "2024042701", "2020101730"}
 
 
 def has_chinese(s: str) -> bool:

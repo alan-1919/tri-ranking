@@ -1094,3 +1094,160 @@ a:hover { text-decoration: underline; }
   .am-meta-grid { grid-template-columns: 1fr; }
   .am-foot { padding: 12px 18px; flex-direction: column; gap: 4px; align-items: flex-start; }
 }
+
+/* ============================================================ */
+/* HERO BANNER — 女力 / Female Power                              */
+/* 方案 B：圖片背景 + 半透明遮罩 + 白色文字                       */
+/* 預設：用深色漸層模擬「圖片」效果                              */
+/* 上傳真實圖片時：把 .hero-banner-bg 的 background 改成圖片 URL */
+/* ============================================================ */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin-bottom: 18px;
+  background: #001E5C;  /* 防漸層未載入時的後備色 */
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* 圖片/漸層背景層（未來換成實際圖：將下面 linear-gradient 改成 url('images/banner-XX.jpg') center/cover no-repeat;）*/
+.hero-banner-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--accent-2) 0%,
+    var(--accent) 30%,
+    var(--accent-3) 55%,
+    var(--accent) 80%,
+    var(--accent-2) 100%
+  );
+  background-size: 400% 400%;
+  animation: hero-bg-shift 18s ease-in-out infinite;
+}
+
+@keyframes hero-bg-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 半透明深色遮罩層：保證文字可讀性（不論底圖多亮）*/
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 細微紋理疊加（增加質感）*/
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 18px,
+    rgba(255, 255, 255, 0.03) 18px,
+    rgba(255, 255, 255, 0.03) 20px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-banner-content {
+  position: relative;
+  z-index: 3;  /* 文字層在遮罩 + 紋理之上 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 30px 20px;
+  color: #ffffff;
+  animation: hero-fade-up 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-banner-en {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  margin-bottom: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  animation: hero-en-slide 1.2s 0.2s both cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes hero-en-slide {
+  from { opacity: 0; letter-spacing: 0.5em; }
+  to   { opacity: 1; letter-spacing: 0.32em; }
+}
+
+.hero-banner-title {
+  font-family: var(--font-zh);
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);  /* 文字陰影加強可讀性 */
+  animation: hero-title-pop 1s 0.3s both cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: transform 0.35s ease, letter-spacing 0.35s ease;
+  cursor: default;
+}
+
+@keyframes hero-title-pop {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.hero-banner-title:hover {
+  transform: scale(1.04);
+  letter-spacing: 0.18em;
+}
+
+.hero-banner-hint {
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.65);
+  animation: hero-hint-fade 1.4s 0.6s both ease-out;
+}
+
+@keyframes hero-hint-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+  .hero-banner { height: 220px; }
+  .hero-banner-title { font-size: 56px; }
+}
+
+@media (max-width: 700px) {
+  .hero-banner { height: 160px; margin-bottom: 14px; }
+  .hero-banner-content { padding: 18px 14px; }
+  .hero-banner-title { font-size: 42px; }
+  .hero-banner-en { font-size: 10px; letter-spacing: 0.24em; margin-bottom: 8px; }
+  .hero-banner-hint { font-size: 9px; margin-top: 12px; }
+}
