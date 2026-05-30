@@ -29,9 +29,6 @@ function App() {
             <div><span>資料更新</span><strong>{meta.lastUpdated}</strong></div>
             <div><span>收錄紀錄</span><strong>{meta.recordCount} / {meta.targetCount}</strong></div>
             <div><span>收錄範圍</span><strong>{meta.coverage}</strong></div>
-            <div className="page-head-links">
-              <a href="about.html">方法說明 · Methodology →</a>
-            </div>
           </div>
         </div>
         <div className="page-head-note">
