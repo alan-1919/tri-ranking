@@ -9,7 +9,7 @@
   // EDIT THESE WHEN YOU SHIP A DATA UPDATE
   // ────────────────────────────────────────────────────────────────
   const META = {
-    lastUpdated: "2026.05.28",
+    lastUpdated: "2026.05.30",
     sourceNote:   "全程226公里（游泳3.8km + 自行車180km + 跑步42.2km）",
     sourceNoteEn: "Full distance 226km (3.8km swim + 180km bike + 42.2km run)",
     coverage:     "全球範圍 · 台灣國籍女子選手",
@@ -34,6 +34,7 @@
     "林吟霞": "Yin-Hsia Lin",
     "吳依玫": "Yi-Mei Wu",
     "李秀如": "Hsiu-Ju Lee",
+    "羅紹萍": "Shao-Ping Lo",
     "黃佩婷": "Pei-Ting Huang",
     "何奕儒": "Yi-Ju Ho",
   };
@@ -45,6 +46,7 @@
     "普悠瑪":        { zh: "普悠瑪超鐵",        en: "Puyuma 226",                region: "TWN" },
     "臺東超鐵":      { zh: "臺東超鐵",          en: "Taitung Triathlon",         region: "TWN" },
     "IM Penghu":    { zh: "IM 台灣 · 澎湖",    en: "IRONMAN Taiwan (Penghu)",   region: "TWN" },
+    "IM Korea":     { zh: "IM 韓國",           en: "IRONMAN Korea",             region: "KOR" },
   };
 
   // ────────────────────────────────────────────────────────────────
