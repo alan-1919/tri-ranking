@@ -72,8 +72,11 @@ def pad_time(s):
 def main():
     # ──── 讀現有 CSV ─────────────────────────────────────
     raw_bytes = CSV_PATH.read_bytes()
-    has_bom = raw_bytes.startswith(b"\xef\xbb\xbf")
-    text = raw_bytes.decode("utf-8-sig")
+    # 防多重 BOM 累積：剝掉所有開頭的 BOM bytes
+    while raw_bytes.startswith(b"\xef\xbb\xbf"):
+        raw_bytes = raw_bytes[3:]
+    has_bom = True  # 我們最後永遠寫 BOM
+    text = raw_bytes.decode("utf-8").lstrip("﻿")
     reader = csv.DictReader(text.splitlines())
     fieldnames = reader.fieldnames
     existing_rows = list(reader)
