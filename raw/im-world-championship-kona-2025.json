@@ -1,0 +1,77 @@
+{
+  "source": "ironman.com",
+  "slug": "im-world-championship-kona",
+  "race_url": "https://www.ironman.com/im-world-championship-kona-results",
+  "iframe_url": "https://labs-v2.competitor.com/results/event/e798aa20-f278-e111-b16a-005056956277_Kona",
+  "event_name": "2025 IRONMAN World Championship - Women",
+  "event_year": 2025,
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "Li Yun Chen",
+      "firstname": "Li Yun",
+      "lastname": "Chen",
+      "country_iso3": "TWN",
+      "city": "taichung city",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2025",
+      "overall_str": "10:57:41",
+      "overall_sec": 39461,
+      "finish_rank_overall": 246,
+      "finish_rank_gender": 246,
+      "finish_rank_group": 37,
+      "splits": {
+        "swim": "01:24:49",
+        "t1": "00:05:00",
+        "bike": "05:27:01",
+        "t2": "",
+        "run": "03:53:48"
+      }
+    },
+    {
+      "name": "Hui An Hsu",
+      "firstname": "Hui An",
+      "lastname": "Hsu",
+      "country_iso3": "TWN",
+      "city": "彰化縣",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2025",
+      "overall_str": "11:50:50",
+      "overall_sec": 42650,
+      "finish_rank_overall": 592,
+      "finish_rank_gender": 592,
+      "finish_rank_group": 103,
+      "splits": {
+        "swim": "01:21:54",
+        "t1": "00:06:39",
+        "bike": "05:58:28",
+        "t2": "",
+        "run": "04:15:41"
+      }
+    },
+    {
+      "name": "Yi Chun Lin",
+      "firstname": "Yi Chun",
+      "lastname": "Lin",
+      "country_iso3": "TWN",
+      "city": "高雄市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2025",
+      "overall_str": "12:09:12",
+      "overall_sec": 43752,
+      "finish_rank_overall": 723,
+      "finish_rank_gender": 723,
+      "finish_rank_group": 122,
+      "splits": {
+        "swim": "01:11:04",
+        "t1": "00:08:15",
+        "bike": "06:13:02",
+        "t2": "",
+        "run": "04:28:41"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "source": "ironman.com",
+  "slug": "im-vietnam",
+  "race_url": "https://www.ironman.com/im-vietnam-results",
+  "iframe_url": "https://labs-v2.competitor.com/results/event/fd59deff-1ab9-41dc-8b31-a1bda1f248a8",
+  "event_name": "2026 IRONMAN Vietnam",
+  "event_year": 2026,
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "Fei Kuo",
+      "firstname": "Fei",
+      "lastname": "Kuo",
+      "country_iso3": "TWN",
+      "city": "新北市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "12:25:56",
+      "overall_sec": 44756,
+      "finish_rank_overall": 237,
+      "finish_rank_gender": 33,
+      "finish_rank_group": 6,
+      "splits": {
+        "swim": "01:22:03",
+        "t1": "00:05:18",
+        "bike": "06:12:46",
+        "t2": "",
+        "run": "04:40:18"
+      }
+    }
+  ]
+}

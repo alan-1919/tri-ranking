@@ -1,0 +1,253 @@
+{
+  "source": "ironman.com",
+  "slug": "im-taiwan",
+  "race_url": "https://www.ironman.com/im-taiwan-results",
+  "iframe_url": "https://labs-v2.competitor.com/results/event/8b4e50b2-04b2-e411-9400-005056951bf1",
+  "event_name": "2026 IRONMAN Penghu",
+  "event_year": 2026,
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "Li Yun Chen",
+      "firstname": "Li Yun",
+      "lastname": "Chen",
+      "country_iso3": "TWN",
+      "city": "taichung city",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "10:22:39",
+      "overall_sec": 37359,
+      "finish_rank_overall": 29,
+      "finish_rank_gender": 2,
+      "finish_rank_group": 2,
+      "splits": {
+        "swim": "01:06:25",
+        "t1": "00:05:45",
+        "bike": "05:17:12",
+        "t2": "",
+        "run": "03:48:11"
+      }
+    },
+    {
+      "name": "Lin Chiu",
+      "firstname": "Lin",
+      "lastname": "Chiu",
+      "country_iso3": "TWN",
+      "city": "新北市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "10:58:05",
+      "overall_sec": 39485,
+      "finish_rank_overall": 53,
+      "finish_rank_gender": 50,
+      "finish_rank_group": 8,
+      "splits": {
+        "swim": "00:54:52",
+        "t1": "00:04:38",
+        "bike": "05:32:35",
+        "t2": "",
+        "run": "04:21:35"
+      }
+    },
+    {
+      "name": "Yimei Wu",
+      "firstname": "Yimei",
+      "lastname": "Wu",
+      "country_iso3": "TWN",
+      "city": "高雄市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "11:13:39",
+      "overall_sec": 40419,
+      "finish_rank_overall": 71,
+      "finish_rank_gender": 4,
+      "finish_rank_group": 4,
+      "splits": {
+        "swim": "01:12:32",
+        "t1": "00:04:59",
+        "bike": "05:52:27",
+        "t2": "",
+        "run": "04:00:56"
+      }
+    },
+    {
+      "name": "Kuo Hui Hsi",
+      "firstname": "Kuo",
+      "lastname": "Hui Hsi",
+      "country_iso3": "TWN",
+      "city": "彰化縣",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "11:14:44",
+      "overall_sec": 40484,
+      "finish_rank_overall": 73,
+      "finish_rank_gender": 5,
+      "finish_rank_group": 1,
+      "splits": {
+        "swim": "01:13:36",
+        "t1": "00:05:33",
+        "bike": "05:45:09",
+        "t2": "",
+        "run": "04:06:32"
+      }
+    },
+    {
+      "name": "WenHui Chen",
+      "firstname": "WenHui",
+      "lastname": "Chen",
+      "country_iso3": "TWN",
+      "city": "新北市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "11:39:03",
+      "overall_sec": 41943,
+      "finish_rank_overall": 98,
+      "finish_rank_gender": 9,
+      "finish_rank_group": 1,
+      "splits": {
+        "swim": "01:24:22",
+        "t1": "00:05:50",
+        "bike": "06:08:03",
+        "t2": "",
+        "run": "03:57:23"
+      }
+    },
+    {
+      "name": "CHUN-JIE LI",
+      "firstname": "CHUN-JIE",
+      "lastname": "LI",
+      "country_iso3": "TWN",
+      "city": "台中市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "11:45:27",
+      "overall_sec": 42327,
+      "finish_rank_overall": 109,
+      "finish_rank_gender": 10,
+      "finish_rank_group": 2,
+      "splits": {
+        "swim": "01:06:50",
+        "t1": "00:06:19",
+        "bike": "05:50:36",
+        "t2": "",
+        "run": "04:36:26"
+      }
+    },
+    {
+      "name": "Yi Fan Chen",
+      "firstname": "Yi Fan",
+      "lastname": "Chen",
+      "country_iso3": "TWN",
+      "city": "Taipei",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "11:58:56",
+      "overall_sec": 43136,
+      "finish_rank_overall": 127,
+      "finish_rank_gender": 11,
+      "finish_rank_group": 5,
+      "splits": {
+        "swim": "01:19:47",
+        "t1": "00:10:54",
+        "bike": "06:09:48",
+        "t2": "",
+        "run": "04:11:53"
+      }
+    },
+    {
+      "name": "PEI-TING HUANG",
+      "firstname": "PEI-TING",
+      "lastname": "HUANG",
+      "country_iso3": "TWN",
+      "city": "",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "12:17:02",
+      "overall_sec": 44222,
+      "finish_rank_overall": 99999,
+      "finish_rank_gender": 99999,
+      "finish_rank_group": 99999,
+      "splits": {
+        "swim": "01:19:51",
+        "t1": "00:08:26",
+        "bike": "06:27:18",
+        "t2": "",
+        "run": "04:16:42"
+      }
+    },
+    {
+      "name": "TZU WEI LIAO",
+      "firstname": "TZU WEI",
+      "lastname": "LIAO",
+      "country_iso3": "TWN",
+      "city": "New Taipei City, Taiwan (R.O.C.)",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "12:21:03",
+      "overall_sec": 44463,
+      "finish_rank_overall": 157,
+      "finish_rank_gender": 13,
+      "finish_rank_group": 3,
+      "splits": {
+        "swim": "01:16:27",
+        "t1": "00:07:31",
+        "bike": "06:25:22",
+        "t2": "",
+        "run": "04:26:37"
+      }
+    },
+    {
+      "name": "Chien yu Liao",
+      "firstname": "Chien yu",
+      "lastname": "Liao",
+      "country_iso3": "TWN",
+      "city": "新竹縣竹北市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "12:21:43",
+      "overall_sec": 44503,
+      "finish_rank_overall": 161,
+      "finish_rank_gender": 14,
+      "finish_rank_group": 7,
+      "splits": {
+        "swim": "01:13:13",
+        "t1": "00:05:27",
+        "bike": "06:47:02",
+        "t2": "",
+        "run": "04:09:14"
+      }
+    },
+    {
+      "name": "Chih Yu Chen",
+      "firstname": "Chih Yu",
+      "lastname": "Chen",
+      "country_iso3": "TWN",
+      "city": "台南市",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2026",
+      "overall_str": "12:23:43",
+      "overall_sec": 44623,
+      "finish_rank_overall": 167,
+      "finish_rank_gender": 15,
+      "finish_rank_group": 2,
+      "splits": {
+        "swim": "01:12:14",
+        "t1": "00:07:15",
+        "bike": "06:32:08",
+        "t2": "",
+        "run": "04:27:41"
+      }
+    }
+  ]
+}

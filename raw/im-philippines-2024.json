@@ -1,0 +1,33 @@
+{
+  "source": "ironman.com",
+  "slug": "im-philippines",
+  "race_url": "https://www.ironman.com/im-philippines-results",
+  "iframe_url": "https://labs-v2.competitor.com/results/event/d4969272-cc61-e711-9418-005056951bf1",
+  "event_name": "2024 IRONMAN Subic Bay Philippines",
+  "event_year": 2024,
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "Chin Ting Hsu",
+      "firstname": "Chin Ting",
+      "lastname": "Hsu",
+      "country_iso3": "TWN",
+      "city": "woodlands",
+      "gender": "F",
+      "agegroup": "",
+      "bib": "2024",
+      "overall_str": "12:18:39",
+      "overall_sec": 44319,
+      "finish_rank_overall": 99,
+      "finish_rank_gender": 1,
+      "finish_rank_group": 1,
+      "splits": {
+        "swim": "01:31:07",
+        "t1": "00:05:16",
+        "bike": "06:08:00",
+        "t2": "",
+        "run": "04:24:54"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "ironman.com",
+  "slug": "im-hamburg",
+  "race_url": "https://www.ironman.com/im-hamburg-results",
+  "iframe_url": "https://labs-v2.competitor.com/results/event/0ed71b3d-6974-e611-9410-005056951bf1",
+  "event_name": "2025 IRONMAN Hamburg",
+  "event_year": 2025,
+  "max_hours_filter": 12.5,
+  "athletes": []
+}
