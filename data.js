@@ -14,7 +14,7 @@
     sourceNoteEn: "Full distance 226km (3.8km swim + 180km bike + 42.2km run)",
     coverage:     "全球範圍 · 台灣國籍女子選手",
     coverageEn:   "Worldwide · Taiwan-nationality women",
-    targetCount:  20,
+    targetCount:  30,
   };
 
   // English-name lookup. Add a row here when you add a new athlete to CSV.
