@@ -241,8 +241,11 @@ window.TableDense = TableDense;
 // ====================================================================
 function TablePodium({ onPick, mode = "canvas" }) {
   const s = useFilteredRankings();
-  const podium = s.filtered.slice(0, 3);
-  const rest = s.filtered.slice(3);
+  // UI 限制顯示前 N 名（N = META.targetCount）；CSV 可存超過 N 筆，但前端只展示前 N
+  const displayLimit = window.RANKINGS_META?.targetCount || 20;
+  const visible = s.filtered.slice(0, displayLimit);
+  const podium = visible.slice(0, 3);
+  const rest = visible.slice(3);
   const isPage = mode === "page";
 
   return (
@@ -401,7 +404,13 @@ function TablePodium({ onPick, mode = "canvas" }) {
         </table>
       </div>
       <footer className="vb-foot">
-        <span>顯示 {s.filtered.length} / {window.RANKINGS.length} 筆</span>
+        <span>
+          顯示 {visible.length} 名
+          {s.filtered.length > displayLimit
+            ? ` · 篩選後共 ${s.filtered.length} 筆，未列出後 ${s.filtered.length - displayLimit} 名`
+            : ""}
+          {" · "}收錄總筆數 {window.RANKINGS.length}
+        </span>
         <span>● = 該欄全榜最佳 · column-best</span>
       </footer>
     </div>

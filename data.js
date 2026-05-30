@@ -37,6 +37,21 @@
     "羅紹萍": "Shao-Ping Lo",
     "黃佩婷": "Pei-Ting Huang",
     "何奕儒": "Yi-Ju Ho",
+    "林怡君": "Yi-Chun Lin",
+    "陳玉玲": "Yu-Ling Chen",
+    "李淳潔": "Chun-Chieh Li",
+    "莊雅婷": "Ya-Ting Chuang",
+    "梁蘭麗": "Lan-Li Liang",
+    "陳知輿": "Chih-Yu Chen",
+    "連雪涵": "Hsueh-Han Lien",
+    "陳明煥": "Ming-Huan Chen",
+    "高玉美": "Yu-Mei Kao",
+    "李宜芳": "Yi-Fang Li",
+    "陳慧菁": "Hui-Ching Chen",
+    "趙瑞娟": "Jui-Chuan Chao",
+    "賴柏伶": "Pai-Ling Lai",
+    "廖健妤": "Chien-Yu Liao",
+    "蔡文雅": "Wen-Ya Tsai",
   };
 
   // Race-code lookup. Add a row when CSV uses a new race code.

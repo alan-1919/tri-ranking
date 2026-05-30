@@ -1,0 +1,740 @@
+{
+  "slug": "2025041303",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2025041303",
+  "race_id": 1404,
+  "race_name": "IRONMAN",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "CHEN Liyun",
+      "bib": "000044",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "09:47:25",
+      "overall_sec": 35245,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000044",
+      "gender": "F",
+      "splits": {
+        "swim": "00:36:50",
+        "t1": "00:05:12",
+        "bike": "05:32:34",
+        "t2": "00:03:28",
+        "run": "03:29:24"
+      }
+    },
+    {
+      "name": "TSCHAN Chinouk",
+      "bib": "000003",
+      "race_type": "IRONMAN",
+      "group": "25-29",
+      "overall_str": "10:00:33",
+      "overall_sec": 36033,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000003",
+      "gender": "F",
+      "splits": {
+        "swim": "00:26:43",
+        "t1": "00:04:08",
+        "bike": "05:49:36",
+        "t2": "00:02:40",
+        "run": "03:37:28"
+      }
+    },
+    {
+      "name": "WAKATSUKI Yurika",
+      "bib": "000010",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "10:07:51",
+      "overall_sec": 36471,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000010",
+      "gender": "F",
+      "splits": {
+        "swim": "00:35:41",
+        "t1": "00:05:25",
+        "bike": "05:57:42",
+        "t2": "00:02:20",
+        "run": "03:26:47"
+      }
+    },
+    {
+      "name": "SEEFRIED Jenna Caer",
+      "bib": "000030",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "10:08:52",
+      "overall_sec": 36532,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000030",
+      "gender": "F",
+      "splits": {
+        "swim": "00:34:28",
+        "t1": "00:05:16",
+        "bike": "05:57:02",
+        "t2": "00:03:17",
+        "run": "03:28:54"
+      }
+    },
+    {
+      "name": "QIAO Beibei",
+      "bib": "000009",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "10:29:27",
+      "overall_sec": 37767,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000009",
+      "gender": "F",
+      "splits": {
+        "swim": "00:32:21",
+        "t1": "00:05:51",
+        "bike": "06:07:19",
+        "t2": "00:04:04",
+        "run": "03:39:55"
+      }
+    },
+    {
+      "name": "ICHIA Huang",
+      "bib": "000021",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "10:32:34",
+      "overall_sec": 37954,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000021",
+      "gender": "F",
+      "splits": {
+        "swim": "00:35:51",
+        "t1": "00:07:13",
+        "bike": "06:05:38",
+        "t2": "00:02:51",
+        "run": "03:41:03"
+      }
+    },
+    {
+      "name": "TAMURA Hikari",
+      "bib": "000005",
+      "race_type": "IRONMAN",
+      "group": "25-29",
+      "overall_str": "10:34:33",
+      "overall_sec": 38073,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000005",
+      "gender": "F",
+      "splits": {
+        "swim": "00:27:59",
+        "t1": "00:05:42",
+        "bike": "06:33:45",
+        "t2": "00:03:08",
+        "run": "03:24:01"
+      }
+    },
+    {
+      "name": "YEUNG Tsz Han",
+      "bib": "000023",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "10:42:51",
+      "overall_sec": 38571,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000023",
+      "gender": "F",
+      "splits": {
+        "swim": "00:39:07",
+        "t1": "00:04:15",
+        "bike": "06:03:46",
+        "t2": "00:03:22",
+        "run": "03:52:24"
+      }
+    },
+    {
+      "name": "FUJITA Satomi",
+      "bib": "000139",
+      "race_type": "IRONMAN",
+      "group": "55-59",
+      "overall_str": "10:53:54",
+      "overall_sec": 39234,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000139",
+      "gender": "F",
+      "splits": {
+        "swim": "00:30:18",
+        "t1": "00:06:18",
+        "bike": "06:13:04",
+        "t2": "00:05:00",
+        "run": "03:59:18"
+      }
+    },
+    {
+      "name": "YAMASHITA Chigusa",
+      "bib": "000027",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "10:54:25",
+      "overall_sec": 39265,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000027",
+      "gender": "F",
+      "splits": {
+        "swim": "00:28:04",
+        "t1": "00:07:35",
+        "bike": "06:23:17",
+        "t2": "00:03:25",
+        "run": "03:52:07"
+      }
+    },
+    {
+      "name": "COBOS Carolina",
+      "bib": "000077",
+      "race_type": "IRONMAN",
+      "group": "40-44",
+      "overall_str": "10:54:26",
+      "overall_sec": 39266,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000077",
+      "gender": "F",
+      "splits": {
+        "swim": "00:34:32",
+        "t1": "00:04:14",
+        "bike": "06:16:57",
+        "t2": "00:02:31",
+        "run": "03:56:16"
+      }
+    },
+    {
+      "name": "HENDERSON Melanie",
+      "bib": "000011",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "10:54:35",
+      "overall_sec": 39275,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000011",
+      "gender": "F",
+      "splits": {
+        "swim": "00:36:57",
+        "t1": "00:06:10",
+        "bike": "06:13:47",
+        "t2": "00:04:53",
+        "run": "03:52:50"
+      }
+    },
+    {
+      "name": "OTA Narumi",
+      "bib": "000034",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "10:56:31",
+      "overall_sec": 39391,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000034",
+      "gender": "F",
+      "splits": {
+        "swim": "00:27:47",
+        "t1": "00:05:27",
+        "bike": "06:19:02",
+        "t2": "00:02:38",
+        "run": "04:01:40"
+      }
+    },
+    {
+      "name": "CAI Chao",
+      "bib": "000033",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "11:01:59",
+      "overall_sec": 39719,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000033",
+      "gender": "F",
+      "splits": {
+        "swim": "00:39:35",
+        "t1": "00:08:14",
+        "bike": "06:43:32",
+        "t2": "00:05:33",
+        "run": "03:25:07"
+      }
+    },
+    {
+      "name": "HSU Hui An",
+      "bib": "000827",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "11:06:30",
+      "overall_sec": 39990,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000827",
+      "gender": "F",
+      "splits": {
+        "swim": "00:35:38",
+        "t1": "00:06:13",
+        "bike": "06:19:02",
+        "t2": "00:05:47",
+        "run": "03:59:52"
+      }
+    },
+    {
+      "name": "ARELLANO Marialuz",
+      "bib": "000123",
+      "race_type": "IRONMAN",
+      "group": "50-54",
+      "overall_str": "11:09:59",
+      "overall_sec": 40199,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000123",
+      "gender": "F",
+      "splits": {
+        "swim": "00:34:16",
+        "t1": "00:05:24",
+        "bike": "06:34:10",
+        "t2": "00:03:23",
+        "run": "03:52:50"
+      }
+    },
+    {
+      "name": "CHEN Wenhui",
+      "bib": "000007",
+      "race_type": "IRONMAN",
+      "group": "25-29",
+      "overall_str": "11:13:36",
+      "overall_sec": 40416,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000007",
+      "gender": "F",
+      "splits": {
+        "swim": "00:46:01",
+        "t1": "00:07:27",
+        "bike": "06:29:46",
+        "t2": "00:06:22",
+        "run": "03:44:04"
+      }
+    },
+    {
+      "name": "BOEHM Simone",
+      "bib": "000120",
+      "race_type": "IRONMAN",
+      "group": "50-54",
+      "overall_str": "11:18:38",
+      "overall_sec": 40718,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000120",
+      "gender": "F",
+      "splits": {
+        "swim": "00:34:18",
+        "t1": "00:05:01",
+        "bike": "06:20:35",
+        "t2": "00:03:00",
+        "run": "04:15:46"
+      }
+    },
+    {
+      "name": "WANG I Chen",
+      "bib": "000019",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "11:21:48",
+      "overall_sec": 40908,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000019",
+      "gender": "F",
+      "splits": {
+        "swim": "00:37:20",
+        "t1": "00:06:14",
+        "bike": "06:46:03",
+        "t2": "00:03:37",
+        "run": "03:48:38"
+      }
+    },
+    {
+      "name": "LI Chun Jie",
+      "bib": "000054",
+      "race_type": "IRONMAN",
+      "group": "40-44",
+      "overall_str": "11:25:12",
+      "overall_sec": 41112,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000054",
+      "gender": "F",
+      "splits": {
+        "swim": "00:34:46",
+        "t1": "00:05:10",
+        "bike": "06:26:03",
+        "t2": "00:04:17",
+        "run": "04:14:59"
+      }
+    },
+    {
+      "name": "CHIU Chienlin",
+      "bib": "000045",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "11:25:32",
+      "overall_sec": 41132,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000045",
+      "gender": "F",
+      "splits": {
+        "swim": "00:48:55",
+        "t1": "00:06:53",
+        "bike": "06:34:43",
+        "t2": "00:08:44",
+        "run": "03:46:20"
+      }
+    },
+    {
+      "name": "KRARUNPETCH Pannapat",
+      "bib": "000014",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "11:28:11",
+      "overall_sec": 41291,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000014",
+      "gender": "F",
+      "splits": {
+        "swim": "00:28:50",
+        "t1": "00:04:30",
+        "bike": "06:39:34",
+        "t2": "00:03:36",
+        "run": "04:11:45"
+      }
+    },
+    {
+      "name": "OTSU Nana",
+      "bib": "000122",
+      "race_type": "IRONMAN",
+      "group": "50-54",
+      "overall_str": "11:31:48",
+      "overall_sec": 41508,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000122",
+      "gender": "F",
+      "splits": {
+        "swim": "00:40:18",
+        "t1": "00:07:13",
+        "bike": "06:20:10",
+        "t2": "00:04:41",
+        "run": "04:19:28"
+      }
+    },
+    {
+      "name": "CHEN Li Tung",
+      "bib": "000017",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "11:33:00",
+      "overall_sec": 41580,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000017",
+      "gender": "F",
+      "splits": {
+        "swim": "00:44:25",
+        "t1": "00:05:48",
+        "bike": "06:34:48",
+        "t2": "00:02:08",
+        "run": "04:05:54"
+      }
+    },
+    {
+      "name": "PROUTY Nada",
+      "bib": "000133",
+      "race_type": "IRONMAN",
+      "group": "55-59",
+      "overall_str": "11:35:35",
+      "overall_sec": 41735,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000133",
+      "gender": "F",
+      "splits": {
+        "swim": "00:39:51",
+        "t1": "00:07:17",
+        "bike": "06:51:08",
+        "t2": "00:04:08",
+        "run": "03:53:14"
+      }
+    },
+    {
+      "name": "LIN Hsiulu",
+      "bib": "000128",
+      "race_type": "IRONMAN",
+      "group": "50-54",
+      "overall_str": "11:42:46",
+      "overall_sec": 42166,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000128",
+      "gender": "F",
+      "splits": {
+        "swim": "00:37:48",
+        "t1": "00:07:15",
+        "bike": "06:43:32",
+        "t2": "00:04:07",
+        "run": "04:10:06"
+      }
+    },
+    {
+      "name": "CHEN Huey Jing",
+      "bib": "000108",
+      "race_type": "IRONMAN",
+      "group": "45-49",
+      "overall_str": "11:44:19",
+      "overall_sec": 42259,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000108",
+      "gender": "F",
+      "splits": {
+        "swim": "00:41:05",
+        "t1": "00:05:23",
+        "bike": "06:34:59",
+        "t2": "00:05:08",
+        "run": "04:17:47"
+      }
+    },
+    {
+      "name": "KLUMPP REINEMUTH Leoni",
+      "bib": "000012",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "11:47:28",
+      "overall_sec": 42448,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000012",
+      "gender": "F",
+      "splits": {
+        "swim": "00:37:51",
+        "t1": "00:04:39",
+        "bike": "06:40:38",
+        "t2": "00:04:42",
+        "run": "04:19:40"
+      }
+    },
+    {
+      "name": "SYNENKA Valentyna",
+      "bib": "000052",
+      "race_type": "IRONMAN",
+      "group": "40-44",
+      "overall_str": "11:48:08",
+      "overall_sec": 42488,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000052",
+      "gender": "F",
+      "splits": {
+        "swim": "00:36:16",
+        "t1": "00:04:43",
+        "bike": "06:32:27",
+        "t2": "00:02:44",
+        "run": "04:32:01"
+      }
+    },
+    {
+      "name": "PAN Jolie",
+      "bib": "000090",
+      "race_type": "IRONMAN",
+      "group": "45-49",
+      "overall_str": "11:51:29",
+      "overall_sec": 42689,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000090",
+      "gender": "F",
+      "splits": {
+        "swim": "00:39:22",
+        "t1": "00:05:45",
+        "bike": "06:34:02",
+        "t2": "00:06:20",
+        "run": "04:26:03"
+      }
+    },
+    {
+      "name": "MITCHELL Mary",
+      "bib": "000154",
+      "race_type": "IRONMAN",
+      "group": "65-69",
+      "overall_str": "11:51:38",
+      "overall_sec": 42698,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000154",
+      "gender": "F",
+      "splits": {
+        "swim": "00:35:34",
+        "t1": "00:07:08",
+        "bike": "06:37:45",
+        "t2": "00:04:16",
+        "run": "04:26:57"
+      }
+    },
+    {
+      "name": "CHEN Hsun Ling",
+      "bib": "000140",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "11:53:55",
+      "overall_sec": 42835,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000140",
+      "gender": "F",
+      "splits": {
+        "swim": "00:41:41",
+        "t1": "00:07:56",
+        "bike": "06:32:04",
+        "t2": "00:04:49",
+        "run": "04:27:28"
+      }
+    },
+    {
+      "name": "LIN Yi Chun",
+      "bib": "000071",
+      "race_type": "IRONMAN",
+      "group": "40-44",
+      "overall_str": "11:54:17",
+      "overall_sec": 42857,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000071",
+      "gender": "F",
+      "splits": {
+        "swim": "00:29:47",
+        "t1": "00:06:46",
+        "bike": "06:44:00",
+        "t2": "00:05:49",
+        "run": "04:27:58"
+      }
+    },
+    {
+      "name": "POVEDA FRANCO Maria Fernanda",
+      "bib": "000100",
+      "race_type": "IRONMAN",
+      "group": "45-49",
+      "overall_str": "11:57:30",
+      "overall_sec": 43050,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000100",
+      "gender": "F",
+      "splits": {
+        "swim": "00:38:41",
+        "t1": "00:08:12",
+        "bike": "06:41:51",
+        "t2": "00:07:52",
+        "run": "04:20:57"
+      }
+    },
+    {
+      "name": "SHIRATO Ayako",
+      "bib": "000142",
+      "race_type": "IRONMAN",
+      "group": "55-59",
+      "overall_str": "12:03:32",
+      "overall_sec": 43412,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000142",
+      "gender": "F",
+      "splits": {
+        "swim": "00:36:28",
+        "t1": "00:07:25",
+        "bike": "07:03:15",
+        "t2": "00:05:45",
+        "run": "04:10:42"
+      }
+    },
+    {
+      "name": "LIN Tzu Yang",
+      "bib": "000020",
+      "race_type": "IRONMAN",
+      "group": "30-34",
+      "overall_str": "12:06:40",
+      "overall_sec": 43600,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000020",
+      "gender": "F",
+      "splits": {
+        "swim": "00:43:50",
+        "t1": "00:08:35",
+        "bike": "06:56:38",
+        "t2": "00:08:11",
+        "run": "04:09:28"
+      }
+    },
+    {
+      "name": "CHANG Hsun Yun",
+      "bib": "000050",
+      "race_type": "IRONMAN",
+      "group": "40-44",
+      "overall_str": "12:12:01",
+      "overall_sec": 43921,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000050",
+      "gender": "F",
+      "splits": {
+        "swim": "00:40:37",
+        "t1": "00:07:04",
+        "bike": "06:50:01",
+        "t2": "00:06:02",
+        "run": "04:28:19"
+      }
+    },
+    {
+      "name": "CHIU Wen Mei",
+      "bib": "000137",
+      "race_type": "IRONMAN",
+      "group": "55-59",
+      "overall_str": "12:17:17",
+      "overall_sec": 44237,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000137",
+      "gender": "F",
+      "splits": {
+        "swim": "00:47:45",
+        "t1": "00:07:48",
+        "bike": "06:55:53",
+        "t2": "00:07:00",
+        "run": "04:18:54"
+      }
+    },
+    {
+      "name": "WANG Feng Yi",
+      "bib": "000125",
+      "race_type": "IRONMAN",
+      "group": "50-54",
+      "overall_str": "12:18:55",
+      "overall_sec": 44335,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000125",
+      "gender": "F",
+      "splits": {
+        "swim": "00:48:43",
+        "t1": "00:07:42",
+        "bike": "07:12:24",
+        "t2": "00:05:16",
+        "run": "04:04:53"
+      }
+    },
+    {
+      "name": "HSU Chien Wei",
+      "bib": "000075",
+      "race_type": "IRONMAN",
+      "group": "40-44",
+      "overall_str": "12:19:49",
+      "overall_sec": 44389,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000075",
+      "gender": "F",
+      "splits": {
+        "swim": "00:38:41",
+        "t1": "00:06:25",
+        "bike": "07:12:54",
+        "t2": "00:02:58",
+        "run": "04:18:52"
+      }
+    },
+    {
+      "name": "AOKI Chieko",
+      "bib": "000117",
+      "race_type": "IRONMAN",
+      "group": "50-54",
+      "overall_str": "12:20:54",
+      "overall_sec": 44454,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000117",
+      "gender": "F",
+      "splits": {
+        "swim": "00:39:09",
+        "t1": "00:09:47",
+        "bike": "06:40:01",
+        "t2": "00:06:04",
+        "run": "04:45:56"
+      }
+    },
+    {
+      "name": "LIAO Tzu Wei",
+      "bib": "000053",
+      "race_type": "IRONMAN",
+      "group": "40-44",
+      "overall_str": "12:23:50",
+      "overall_sec": 44630,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000053",
+      "gender": "F",
+      "splits": {
+        "swim": "00:40:19",
+        "t1": "00:07:32",
+        "bike": "07:22:15",
+        "t2": "00:05:50",
+        "run": "04:07:58"
+      }
+    },
+    {
+      "name": "KUO Hui Hsi",
+      "bib": "000039",
+      "race_type": "IRONMAN",
+      "group": "35-39",
+      "overall_str": "12:28:38",
+      "overall_sec": 44918,
+      "athlete_url": "https://www.bravelog.tw/athlete/1404/000039",
+      "gender": "F",
+      "splits": {
+        "swim": "00:37:14",
+        "t1": "00:07:31",
+        "bike": "07:17:32",
+        "t2": "00:05:00",
+        "run": "04:21:25"
+      }
+    }
+  ]
+}

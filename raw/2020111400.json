@@ -1,0 +1,43 @@
+{
+  "slug": "2020111400",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2020111400",
+  "race_id": 43,
+  "race_name": "226全程",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "羅紹萍",
+      "bib": "001028",
+      "race_type": "226全程",
+      "group": "F35-39",
+      "overall_str": "12:19:49",
+      "overall_sec": 44389,
+      "athlete_url": "https://www.bravelog.tw/athlete/43/001028",
+      "gender": "F",
+      "splits": {
+        "swim": "01:40:51",
+        "t1": "00:14:30",
+        "bike": "05:57:14",
+        "t2": "00:09:40",
+        "run": "04:17:26"
+      }
+    },
+    {
+      "name": "蔡文雅",
+      "bib": "001090",
+      "race_type": "226全程",
+      "group": "F50-54",
+      "overall_str": "12:27:35",
+      "overall_sec": 44855,
+      "athlete_url": "https://www.bravelog.tw/athlete/43/001090",
+      "gender": "F",
+      "splits": {
+        "swim": "01:44:59",
+        "t1": "00:10:19",
+        "bike": "06:19:01",
+        "t2": "00:04:35",
+        "run": "04:08:34"
+      }
+    }
+  ]
+}

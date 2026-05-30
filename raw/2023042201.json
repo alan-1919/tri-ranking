@@ -1,0 +1,77 @@
+{
+  "slug": "2023042201",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2023042201",
+  "race_id": 506,
+  "race_name": "2023 Challenge Taiwan - 226公里 菁英",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "陳俐妘",
+      "bib": "001008",
+      "race_type": "2023 Challenge Taiwan - 226公里 菁英",
+      "group": "Elite Female",
+      "overall_str": "09:56:59",
+      "overall_sec": 35819,
+      "athlete_url": "https://www.bravelog.tw/athlete/506/001008",
+      "gender": "F",
+      "splits": {
+        "swim": "01:18:29",
+        "t1": "00:06:51",
+        "bike": "04:58:15",
+        "t2": "00:03:50",
+        "run": "03:29:34"
+      }
+    },
+    {
+      "name": "陳知輿",
+      "bib": "001009",
+      "race_type": "2023 Challenge Taiwan - 226公里 菁英",
+      "group": "Elite Female",
+      "overall_str": "11:52:45",
+      "overall_sec": 42765,
+      "athlete_url": "https://www.bravelog.tw/athlete/506/001009",
+      "gender": "F",
+      "splits": {
+        "swim": "01:18:40",
+        "t1": "00:08:39",
+        "bike": "06:09:26",
+        "t2": "00:06:55",
+        "run": "04:09:05"
+      }
+    },
+    {
+      "name": "賴柏伶",
+      "bib": "001010",
+      "race_type": "2023 Challenge Taiwan - 226公里 菁英",
+      "group": "Elite Female",
+      "overall_str": "12:24:48",
+      "overall_sec": 44688,
+      "athlete_url": "https://www.bravelog.tw/athlete/506/001010",
+      "gender": "F",
+      "splits": {
+        "swim": "01:31:05",
+        "t1": "00:09:10",
+        "bike": "05:55:49",
+        "t2": "00:07:31",
+        "run": "04:41:13"
+      }
+    },
+    {
+      "name": "吳依玫",
+      "bib": "001007",
+      "race_type": "2023 Challenge Taiwan - 226公里 菁英",
+      "group": "Elite Female",
+      "overall_str": "12:27:02",
+      "overall_sec": 44822,
+      "athlete_url": "https://www.bravelog.tw/athlete/506/001007",
+      "gender": "F",
+      "splits": {
+        "swim": "01:25:04",
+        "t1": "00:09:42",
+        "bike": "06:20:36",
+        "t2": "00:06:56",
+        "run": "04:24:44"
+      }
+    }
+  ]
+}

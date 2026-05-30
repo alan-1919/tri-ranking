@@ -1,0 +1,230 @@
+{
+  "slug": "2023031801",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2023031801",
+  "race_id": 452,
+  "race_name": "2023普悠瑪鐵人三項226Km-個人組",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "郭家齊",
+      "bib": "000490",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F20",
+      "overall_str": "10:09:12",
+      "overall_sec": 36552,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000490",
+      "gender": "F",
+      "splits": {
+        "swim": "01:01:55",
+        "t1": "00:02:55",
+        "bike": "05:15:59",
+        "t2": "00:02:15",
+        "run": "03:46:08"
+      }
+    },
+    {
+      "name": "洪筱婷",
+      "bib": "000545",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F40",
+      "overall_str": "10:49:19",
+      "overall_sec": 38959,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000545",
+      "gender": "F",
+      "splits": {
+        "swim": "01:19:37",
+        "t1": "00:05:51",
+        "bike": "05:27:49",
+        "t2": "00:03:42",
+        "run": "03:52:20"
+      }
+    },
+    {
+      "name": "鍾天晴",
+      "bib": "000499",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F30",
+      "overall_str": "10:56:36",
+      "overall_sec": 39396,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000499",
+      "gender": "F",
+      "splits": {
+        "swim": "01:29:33",
+        "t1": "00:04:34",
+        "bike": "05:34:36",
+        "t2": "00:03:53",
+        "run": "03:44:00"
+      }
+    },
+    {
+      "name": "郭慧希",
+      "bib": "000506",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F30",
+      "overall_str": "11:16:04",
+      "overall_sec": 40564,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000506",
+      "gender": "F",
+      "splits": {
+        "swim": "01:24:32",
+        "t1": "00:04:10",
+        "bike": "05:40:07",
+        "t2": "00:03:28",
+        "run": "04:03:47"
+      }
+    },
+    {
+      "name": "徐慧安",
+      "bib": "000505",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F30",
+      "overall_str": "11:32:12",
+      "overall_sec": 41532,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000505",
+      "gender": "F",
+      "splits": {
+        "swim": "01:28:05",
+        "t1": "00:05:08",
+        "bike": "05:55:00",
+        "t2": "00:04:41",
+        "run": "03:59:18"
+      }
+    },
+    {
+      "name": "林吟霞",
+      "bib": "000566",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F50",
+      "overall_str": "11:34:36",
+      "overall_sec": 41676,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000566",
+      "gender": "F",
+      "splits": {
+        "swim": "01:18:47",
+        "t1": "00:03:39",
+        "bike": "05:44:45",
+        "t2": "00:05:10",
+        "run": "04:22:15"
+      }
+    },
+    {
+      "name": "李淳潔",
+      "bib": "000497",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F30",
+      "overall_str": "11:44:06",
+      "overall_sec": 42246,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000497",
+      "gender": "F",
+      "splits": {
+        "swim": "01:12:25",
+        "t1": "00:03:36",
+        "bike": "06:35:09",
+        "t2": "00:04:15",
+        "run": "03:48:41"
+      }
+    },
+    {
+      "name": "連雪涵",
+      "bib": "000508",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F30",
+      "overall_str": "11:55:05",
+      "overall_sec": 42905,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000508",
+      "gender": "F",
+      "splits": {
+        "swim": "01:36:05",
+        "t1": "00:09:22",
+        "bike": "06:35:04",
+        "t2": "00:05:35",
+        "run": "03:28:59"
+      }
+    },
+    {
+      "name": "高玉美",
+      "bib": "000536",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F40",
+      "overall_str": "11:58:36",
+      "overall_sec": 43116,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000536",
+      "gender": "F",
+      "splits": {
+        "swim": "01:19:37",
+        "t1": "00:02:35",
+        "bike": "06:07:46",
+        "t2": "00:02:33",
+        "run": "04:26:05"
+      }
+    },
+    {
+      "name": "梁蘭麗",
+      "bib": "000539",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F40",
+      "overall_str": "12:07:17",
+      "overall_sec": 43637,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000539",
+      "gender": "F",
+      "splits": {
+        "swim": "01:28:42",
+        "t1": "00:06:52",
+        "bike": "06:22:01",
+        "t2": "00:09:11",
+        "run": "04:00:31"
+      }
+    },
+    {
+      "name": "趙瑞娟",
+      "bib": "000534",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F40",
+      "overall_str": "12:23:43",
+      "overall_sec": 44623,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000534",
+      "gender": "F",
+      "splits": {
+        "swim": "01:39:48",
+        "t1": "00:07:59",
+        "bike": "06:35:27",
+        "t2": "00:03:51",
+        "run": "03:56:38"
+      }
+    },
+    {
+      "name": "賴柏伶",
+      "bib": "000552",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F40",
+      "overall_str": "12:26:14",
+      "overall_sec": 44774,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000552",
+      "gender": "F",
+      "splits": {
+        "swim": "01:38:21",
+        "t1": "00:05:58",
+        "bike": "06:06:41",
+        "t2": "00:05:09",
+        "run": "04:30:05"
+      }
+    },
+    {
+      "name": "廖健妤",
+      "bib": "000507",
+      "race_type": "2023普悠瑪鐵人三項226Km-個人組",
+      "group": "F30",
+      "overall_str": "12:26:49",
+      "overall_sec": 44809,
+      "athlete_url": "https://www.bravelog.tw/athlete/452/000507",
+      "gender": "F",
+      "splits": {
+        "swim": "01:26:06",
+        "t1": "00:08:52",
+        "bike": "06:17:17",
+        "t2": "00:10:25",
+        "run": "04:24:09"
+      }
+    }
+  ]
+}

@@ -55,7 +55,7 @@ a:hover { text-decoration: underline; }
 }
 .page-head-id { display: flex; align-items: center; gap: 14px; }
 .page-head-mark {
-  width: 36px; height: 36px;
+  width: 28px; height: 46px;
   display: flex; align-items: center; justify-content: center;
 }
 .page-head-titles h1 {
@@ -84,6 +84,8 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-direction: column;
   gap: 2px;
+  text-align: right;
+  align-items: flex-end;
 }
 .page-head-meta span {
   font-family: var(--font-sans);

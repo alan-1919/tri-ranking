@@ -1,0 +1,77 @@
+{
+  "slug": "2020101730",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2020101730",
+  "race_id": 37,
+  "race_name": "226公里",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "李秀如",
+      "bib": "000273",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:14:58",
+      "overall_sec": 40498,
+      "athlete_url": "https://www.bravelog.tw/athlete/37/000273",
+      "gender": "F",
+      "splits": {
+        "swim": "00:45:15",
+        "t1": "00:04:15",
+        "bike": "05:29:31",
+        "t2": "00:04:12",
+        "run": "04:01:58"
+      }
+    },
+    {
+      "name": "陳玉玲",
+      "bib": "000278",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:37:34",
+      "overall_sec": 41854,
+      "athlete_url": "https://www.bravelog.tw/athlete/37/000278",
+      "gender": "F",
+      "splits": {
+        "swim": "00:46:31",
+        "t1": "00:05:02",
+        "bike": "05:38:52",
+        "t2": "00:03:39",
+        "run": "04:15:32"
+      }
+    },
+    {
+      "name": "陳明煥",
+      "bib": "000296",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:56:25",
+      "overall_sec": 42985,
+      "athlete_url": "https://www.bravelog.tw/athlete/37/000296",
+      "gender": "F",
+      "splits": {
+        "swim": "00:39:57",
+        "t1": "00:04:34",
+        "bike": "06:08:46",
+        "t2": "00:03:06",
+        "run": "04:18:25"
+      }
+    },
+    {
+      "name": "蔡文雅",
+      "bib": "000282",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "12:27:11",
+      "overall_sec": 44831,
+      "athlete_url": "https://www.bravelog.tw/athlete/37/000282",
+      "gender": "F",
+      "splits": {
+        "swim": "00:53:53",
+        "t1": "00:06:20",
+        "bike": "06:15:31",
+        "t2": "00:02:35",
+        "run": "04:11:18"
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "slug": "2022041001",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2022041001",
+  "race_id": 203,
+  "race_name": "Ironman",
+  "max_hours_filter": 12,
+  "athletes": [
+    {
+      "name": "陳俐妘",
+      "bib": "001008",
+      "race_type": "Ironman",
+      "group": "30-34",
+      "overall_str": "10:37:08",
+      "overall_sec": 38228,
+      "athlete_url": "https://www.bravelog.tw/athlete/203/001008",
+      "gender": "F",
+      "splits": {
+        "swim": "01:25:05",
+        "t1": "00:03:45",
+        "bike": "05:28:22",
+        "t2": "00:03:20",
+        "run": "03:36:36"
+      }
+    },
+    {
+      "name": "楊宜靜",
+      "bib": "001004",
+      "race_type": "Ironman",
+      "group": "25-29",
+      "overall_str": "11:12:23",
+      "overall_sec": 40343,
+      "athlete_url": "https://www.bravelog.tw/athlete/203/001004",
+      "gender": "F",
+      "splits": {
+        "swim": "01:15:33",
+        "t1": "00:03:46",
+        "bike": "05:35:26",
+        "t2": "00:02:10",
+        "run": "04:15:28"
+      }
+    },
+    {
+      "name": "許靜怡",
+      "bib": "001029",
+      "race_type": "Ironman",
+      "group": "40-44",
+      "overall_str": "11:21:04",
+      "overall_sec": 40864,
+      "athlete_url": "https://www.bravelog.tw/athlete/203/001029",
+      "gender": "F",
+      "splits": {
+        "swim": "01:30:58",
+        "t1": "00:05:25",
+        "bike": "05:41:52",
+        "t2": "00:02:35",
+        "run": "04:00:14"
+      }
+    },
+    {
+      "name": "李秀如",
+      "bib": "001028",
+      "race_type": "Ironman",
+      "group": "40-44",
+      "overall_str": "11:40:42",
+      "overall_sec": 42042,
+      "athlete_url": "https://www.bravelog.tw/athlete/203/001028",
+      "gender": "F",
+      "splits": {
+        "swim": "01:32:43",
+        "t1": "00:05:36",
+        "bike": "05:36:09",
+        "t2": "00:05:48",
+        "run": "04:20:27"
+      }
+    },
+    {
+      "name": "莊雅婷",
+      "bib": "001009",
+      "race_type": "Ironman",
+      "group": "30-34",
+      "overall_str": "11:45:26",
+      "overall_sec": 42326,
+      "athlete_url": "https://www.bravelog.tw/athlete/203/001009",
+      "gender": "F",
+      "splits": {
+        "swim": "01:32:55",
+        "t1": "00:07:24",
+        "bike": "05:50:49",
+        "t2": "00:04:54",
+        "run": "04:09:25"
+      }
+    }
+  ]
+}

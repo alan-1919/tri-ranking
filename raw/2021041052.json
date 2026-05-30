@@ -1,0 +1,111 @@
+{
+  "slug": "2021041052",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2021041052",
+  "race_id": 91,
+  "race_name": "226公里",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "楊宜靜",
+      "bib": "000233",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:02:29",
+      "overall_sec": 39749,
+      "athlete_url": "https://www.bravelog.tw/athlete/91/000233",
+      "gender": "F",
+      "splits": {
+        "swim": "01:14:38",
+        "t1": "00:04:19",
+        "bike": "05:29:09",
+        "t2": "00:02:43",
+        "run": "04:11:34"
+      }
+    },
+    {
+      "name": "郭慧希",
+      "bib": "000227",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:30:06",
+      "overall_sec": 41406,
+      "athlete_url": "https://www.bravelog.tw/athlete/91/000227",
+      "gender": "F",
+      "splits": {
+        "swim": "01:30:51",
+        "t1": "00:08:29",
+        "bike": "05:44:44",
+        "t2": "00:02:25",
+        "run": "04:03:28"
+      }
+    },
+    {
+      "name": "徐慧安",
+      "bib": "000215",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:37:36",
+      "overall_sec": 41856,
+      "athlete_url": "https://www.bravelog.tw/athlete/91/000215",
+      "gender": "F",
+      "splits": {
+        "swim": "01:23:50",
+        "t1": "00:06:24",
+        "bike": "05:56:15",
+        "t2": "00:04:04",
+        "run": "04:06:56"
+      }
+    },
+    {
+      "name": "林吟霞",
+      "bib": "000219",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:42:10",
+      "overall_sec": 42130,
+      "athlete_url": "https://www.bravelog.tw/athlete/91/000219",
+      "gender": "F",
+      "splits": {
+        "swim": "01:24:58",
+        "t1": "00:07:07",
+        "bike": "05:45:59",
+        "t2": "00:04:23",
+        "run": "04:19:34"
+      }
+    },
+    {
+      "name": "梁蘭麗",
+      "bib": "000217",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "11:52:12",
+      "overall_sec": 42732,
+      "athlete_url": "https://www.bravelog.tw/athlete/91/000217",
+      "gender": "F",
+      "splits": {
+        "swim": "01:33:43",
+        "t1": "00:07:05",
+        "bike": "06:11:25",
+        "t2": "00:04:43",
+        "run": "03:55:08"
+      }
+    },
+    {
+      "name": "陳慧菁",
+      "bib": "000229",
+      "race_type": "226公里",
+      "group": "F00",
+      "overall_str": "12:10:19",
+      "overall_sec": 43819,
+      "athlete_url": "https://www.bravelog.tw/athlete/91/000229",
+      "gender": "F",
+      "splits": {
+        "swim": "01:25:55",
+        "t1": "00:05:21",
+        "bike": "06:05:22",
+        "t2": "00:02:47",
+        "run": "04:30:46"
+      }
+    }
+  ]
+}

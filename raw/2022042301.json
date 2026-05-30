@@ -1,0 +1,26 @@
+{
+  "slug": "2022042301",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2022042301",
+  "race_id": 210,
+  "race_name": "226公里",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "梁蘭麗",
+      "bib": "000143",
+      "race_type": "226公里",
+      "group": "F40-44",
+      "overall_str": "12:13:20",
+      "overall_sec": 44000,
+      "athlete_url": "https://www.bravelog.tw/athlete/210/000143",
+      "gender": "F",
+      "splits": {
+        "swim": "01:29:13",
+        "t1": "00:08:47",
+        "bike": "06:14:05",
+        "t2": "00:06:28",
+        "run": "04:14:41"
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "slug": "2024042701",
+  "contest_url": "https://www.bravelog.tw/contest/rank/2024042701",
+  "race_id": 890,
+  "race_name": "Challenge Taiwan 226k Individual",
+  "max_hours_filter": 12.5,
+  "athletes": [
+    {
+      "name": "JIHO HWANG",
+      "bib": "001651",
+      "race_type": "Challenge Taiwan 226k Individual",
+      "group": "40-44",
+      "overall_str": "10:46:37",
+      "overall_sec": 38797,
+      "athlete_url": "https://www.bravelog.tw/athlete/890/001651",
+      "gender": "F",
+      "splits": {
+        "swim": "00:33:50",
+        "t1": "00:41:13",
+        "bike": "05:33:54",
+        "t2": "00:03:32",
+        "run": "03:54:11"
+      }
+    },
+    {
+      "name": "SVOBODA PAULINA",
+      "bib": "001631",
+      "race_type": "Challenge Taiwan 226k Individual",
+      "group": "35-39",
+      "overall_str": "11:54:43",
+      "overall_sec": 42883,
+      "athlete_url": "https://www.bravelog.tw/athlete/890/001631",
+      "gender": "F",
+      "splits": {
+        "swim": "00:50:00",
+        "t1": "01:08:23",
+        "bike": "05:58:06",
+        "t2": "00:05:58",
+        "run": "03:52:19"
+      }
+    },
+    {
+      "name": "陳玟卉",
+      "bib": "001598",
+      "race_type": "Challenge Taiwan 226k Individual",
+      "group": "25-29",
+      "overall_str": "12:07:23",
+      "overall_sec": 43643,
+      "athlete_url": "https://www.bravelog.tw/athlete/890/001598",
+      "gender": "F",
+      "splits": {
+        "swim": "00:47:42",
+        "t1": "00:57:58",
+        "bike": "05:55:05",
+        "t2": "00:10:57",
+        "run": "04:15:43"
+      }
+    },
+    {
+      "name": "王怡蓁",
+      "bib": "001604",
+      "race_type": "Challenge Taiwan 226k Individual",
+      "group": "30-34",
+      "overall_str": "12:22:32",
+      "overall_sec": 44552,
+      "athlete_url": "https://www.bravelog.tw/athlete/890/001604",
+      "gender": "F",
+      "splits": {
+        "swim": "00:42:03",
+        "t1": "00:55:16",
+        "bike": "06:12:45",
+        "t2": "00:10:07",
+        "run": "04:22:25"
+      }
+    }
+  ]
+}
