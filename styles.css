@@ -292,7 +292,9 @@ a:hover { text-decoration: underline; }
 .num.dim { color: var(--mute-2); }
 .empty { color: var(--mute-2); }
 .rank-cell { color: var(--muted); font-weight: 500; width: 54px; }
-.name-cell { min-width: 170px; }
+.name-cell { min-width: 200px; }
+.name-cell-inner { display: flex; align-items: center; gap: 12px; }
+.name-cell-text { min-width: 0; }
 .name-zh { font-family: var(--font-zh); font-weight: 600; font-size: 16px; }
 .name-en { font-family: var(--font-sans); font-size: 12px; color: var(--muted); letter-spacing: 0.02em; margin-top: 2px; }
 .flag-pill {
@@ -360,6 +362,28 @@ a:hover { text-decoration: underline; }
 }
 
 /* ============================================================ */
+/* PORTRAIT (avatar) — used in podium, table, mobile card, modal */
+/* ============================================================ */
+.portrait {
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: #fafafa;
+  flex-shrink: 0;
+  display: block;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.portrait svg { width: 100%; height: 100%; display: block; }
+.portrait-sm { width: 36px;  height: 36px; }
+.portrait-md { width: 44px;  height: 44px; }
+.portrait-lg { width: 72px;  height: 72px; }
+.portrait-xl { width: 120px; height: 120px; }
+
+/* ============================================================ */
 /* VARIATION B — podium cards                                    */
 /* ============================================================ */
 .vb-podium {
@@ -383,7 +407,13 @@ a:hover { text-decoration: underline; }
 .vb-pod-1 { border-top-color: var(--gold); }
 .vb-pod-2 { border-top-color: var(--silver); }
 .vb-pod-3 { border-top-color: var(--bronze); }
-.vb-pod-rank { font-family: var(--font-mono); font-size: 28px; font-weight: 600; line-height: 1; margin-bottom: 8px; }
+.vb-pod-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.vb-pod-rank { font-family: var(--font-mono); font-size: 28px; font-weight: 600; line-height: 1; }
 .vb-pod-name-zh { font-family: var(--font-zh); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
 .vb-pod-name-en { font-family: var(--font-sans); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
 .vb-pod-time {
@@ -941,6 +971,12 @@ a:hover { text-decoration: underline; }
     grid-template-columns: auto 1fr auto;
     gap: 12px;
     align-items: start;
+  }
+  .vb-card-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
   .vb-card-rank {
     font-family: var(--font-mono);

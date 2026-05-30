@@ -3,6 +3,39 @@
 
 const { useState, useMemo } = React;
 
+// ---------- shared portrait (avatar) ----------
+// Sizes: sm = 36 (table inline), md = 44 (mobile card), lg = 80 (podium), xl = 120 (modal).
+// If athlete.photo is set (e.g., "images/athletes/li-2017.jpg") we render the image.
+// Otherwise we render the same striped placeholder used in the Modal.
+function Portrait({ athlete, size = "sm" }) {
+  const [errored, setErrored] = useState(false);
+  const hasPhoto = athlete.photo && !errored;
+  const patternId = `pp-${athlete.rank}-${size}`;
+  return (
+    <div className={`portrait portrait-${size}`} aria-hidden="true">
+      {hasPhoto ? (
+        <img
+          src={athlete.photo}
+          alt={athlete.name}
+          loading="lazy"
+          onError={() => setErrored(true)}
+        />
+      ) : (
+        <svg width="100%" height="100%" viewBox="0 0 60 60" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id={patternId} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect width="6" height="6" fill="#f4f4f5"/>
+              <line x1="0" y1="0" x2="0" y2="6" stroke="#e4e4e7" strokeWidth="2"/>
+            </pattern>
+          </defs>
+          <rect width="60" height="60" fill={`url(#${patternId})`}/>
+        </svg>
+      )}
+    </div>
+  );
+}
+window.Portrait = Portrait;
+
 // ---------- shared filter/sort hook ----------
 function useFilteredRankings() {
   const [query, setQuery] = useState("");
@@ -231,7 +264,10 @@ function TablePodium({ onPick, mode = "canvas" }) {
             const meds = ["#C9A14B", "#9CA3AF", "#A66A3A"];
             return (
               <button key={r.rank} className={`vb-pod vb-pod-${i + 1}`} onClick={() => onPick(r)}>
-                <div className="vb-pod-rank" style={{ color: meds[i] }}>{ords[i]}</div>
+                <div className="vb-pod-top">
+                  <Portrait athlete={r} size="lg" />
+                  <div className="vb-pod-rank" style={{ color: meds[i] }}>{ords[i]}</div>
+                </div>
                 <div className="vb-pod-name-zh">{r.name}</div>
                 <div className="vb-pod-name-en">{r.nameEn}</div>
                 <div className="vb-pod-time">
@@ -268,7 +304,10 @@ function TablePodium({ onPick, mode = "canvas" }) {
         {rest.map((r) => (
           <li key={r.rank} className="vb-card" onClick={() => onPick(r)}>
             <div className="vb-card-head">
-              <span className="vb-card-rank">{String(r.rank).padStart(2, "0")}</span>
+              <div className="vb-card-left">
+                <span className="vb-card-rank">{String(r.rank).padStart(2, "0")}</span>
+                <Portrait athlete={r} size="md" />
+              </div>
               <div className="vb-card-id">
                 <div className="vb-card-name">
                   {r.name}
@@ -335,8 +374,13 @@ function TablePodium({ onPick, mode = "canvas" }) {
               <tr key={r.rank} onClick={() => onPick(r)}>
                 <td className="num rank-cell">{String(r.rank).padStart(2, "0")}</td>
                 <td className="name-cell">
-                  <div className="name-zh">{r.name} <span className="flag-pill sm">{r.country}</span></div>
-                  <div className="name-en">{r.nameEn}</div>
+                  <div className="name-cell-inner">
+                    <Portrait athlete={r} size="sm" />
+                    <div className="name-cell-text">
+                      <div className="name-zh">{r.name} <span className="flag-pill sm">{r.country}</span></div>
+                      <div className="name-en">{r.nameEn}</div>
+                    </div>
+                  </div>
                 </td>
                 <td className="race-cell">
                   <div className="race-zh">{window.RACES[r.race]?.zh || r.race} <span className="race-year">{r.year}</span></div>

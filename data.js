@@ -132,6 +132,7 @@
       bio:         row.bio   || "",
       source:      row.source || "",
       sourceLabel: row.source_label || "",
+      photo:       (row.photo || "").trim(),
       // Numeric (seconds) for sorting / math:
       swimSec:    toSeconds(row.swim),
       t1Sec:      toSeconds(row.t1),

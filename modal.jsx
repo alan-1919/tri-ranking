@@ -38,19 +38,7 @@ function AthleteModal({ athlete, onClose }) {
             <span className="am-rank-num">{String(athlete.rank).padStart(2, "0")}</span>
             <span className="am-rank-label">All-time<br/>歷代排名</span>
           </div>
-          <div className="am-portrait" aria-hidden="true">
-            <svg width="100%" height="100%" viewBox="0 0 120 120" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <pattern id={`pp-${athlete.rank}`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                  <rect width="6" height="6" fill="#f4f4f5"/>
-                  <line x1="0" y1="0" x2="0" y2="6" stroke="#e4e4e7" strokeWidth="2"/>
-                </pattern>
-              </defs>
-              <rect width="120" height="120" fill={`url(#pp-${athlete.rank})`}/>
-              <text x="60" y="64" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="10" fill="#a1a1aa" letterSpacing="0.06em">PORTRAIT</text>
-              <text x="60" y="78" textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="8" fill="#a1a1aa">PHOTO TBD</text>
-            </svg>
-          </div>
+          <window.Portrait athlete={athlete} size="xl" />
           <div className="am-id">
             <div className="am-name-zh">{athlete.name}</div>
             <div className="am-name-en">{athlete.nameEn} <span className="am-nat">· {athlete.country}</span></div>
