@@ -1097,72 +1097,41 @@ a:hover { text-decoration: underline; }
 
 /* ============================================================ */
 /* HERO BANNER — 女力 / Female Power                              */
-/* 方案 B：圖片背景 + 半透明遮罩 + 白色文字                       */
-/* 預設：用深色漸層模擬「圖片」效果                              */
-/* 上傳真實圖片時：把 .hero-banner-bg 的 background 改成圖片 URL */
+/* 結構：外層滿版 100vw + 內層 1390px 安全顯示區                  */
+/* 上傳實際圖片時：把 .hero-banner-inner 的 background 改成圖片 URL */
+/* 兩邊延伸色由 .hero-banner 的 background-color 控制              */
 /* ============================================================ */
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 280px;
-  margin-bottom: 18px;
-  background: #001E5C;  /* 防漸層未載入時的後備色 */
-  border: 1px solid var(--line);
+  height: 420px;
+  background-color: #f3f2f2;  /* ← 兩側滿版延伸色 */
   overflow: hidden;
 }
 
-/* 圖片/漸層背景層（未來換成實際圖：將下面 linear-gradient 改成 url('images/banner-XX.jpg') center/cover no-repeat;）*/
+/* 內層 1390px 安全區（主視覺顯示區）*/
+.hero-banner-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1390px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* 圖片背景層：使用 banner-female-power.png */
 .hero-banner-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--accent-2) 0%,
-    var(--accent) 30%,
-    var(--accent-3) 55%,
-    var(--accent) 80%,
-    var(--accent-2) 100%
-  );
-  background-size: 400% 400%;
-  animation: hero-bg-shift 18s ease-in-out infinite;
+  background: url('images/banner-female-power.png') center center / cover no-repeat;
 }
 
-@keyframes hero-bg-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+/* 圖片版本不需要文字遮罩 + 紋理（圖片已自帶設計）→ 全部隱藏 */
+.hero-banner-inner::before,
+.hero-banner-inner::after { display: none; }
 
-/* 半透明深色遮罩層：保證文字可讀性（不論底圖多亮）*/
-.hero-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* 細微紋理疊加（增加質感）*/
-.hero-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 18px,
-    rgba(255, 255, 255, 0.03) 18px,
-    rgba(255, 255, 255, 0.03) 20px
-  );
-  pointer-events: none;
-  z-index: 2;
-}
+/* 圖片已自帶 TAIWAN WOMEN TRIATHLON / 女力 / 標語，前端文字疊層暫時隱藏 */
+.hero-banner-content { display: none; }
 
 .hero-banner-content {
   position: relative;
@@ -1238,16 +1207,11 @@ a:hover { text-decoration: underline; }
   to   { opacity: 1; }
 }
 
-/* 響應式 */
+/* 響應式：高度按比例縮小（保持圖片視覺完整） */
 @media (max-width: 1024px) {
-  .hero-banner { height: 220px; }
-  .hero-banner-title { font-size: 56px; }
+  .hero-banner { height: 280px; }
 }
 
 @media (max-width: 700px) {
-  .hero-banner { height: 160px; margin-bottom: 14px; }
-  .hero-banner-content { padding: 18px 14px; }
-  .hero-banner-title { font-size: 42px; }
-  .hero-banner-en { font-size: 10px; letter-spacing: 0.24em; margin-bottom: 8px; }
-  .hero-banner-hint { font-size: 9px; margin-top: 12px; }
+  .hero-banner { height: 180px; }
 }
