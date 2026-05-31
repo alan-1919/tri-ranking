@@ -14,7 +14,7 @@
     sourceNoteEn: "Full distance 226km (3.8km swim + 180km bike + 42.2km run)",
     coverage:     "全球範圍 · 台灣國籍女子選手",
     coverageEn:   "Worldwide · Taiwan-nationality women",
-    targetCount:  34,
+    targetCount:  30,
   };
 
   // English-name lookup. Add a row here when you add a new athlete to CSV.
@@ -177,12 +177,32 @@
   window.sortByNum = byNum;
   window.sortByStr = byStr;
 
+  // 拿 rankings.csv 的最新 commit 日期，作為「資料更新」顯示
+  // 用 GitHub Public API（無需驗證；匿名上限 60/hr per IP，訪客流量夠用）
+  // 失敗或拿不到時 fallback 為 META.lastUpdated 寫死值
+  async function fetchLastUpdatedFromGitHub() {
+    const url = "https://api.github.com/repos/kobby0923-tw/tri-ranking/commits?path=rankings.csv&per_page=1";
+    try {
+      const res = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
+      if (!res.ok) return null;
+      const arr = await res.json();
+      const iso = arr?.[0]?.commit?.author?.date || arr?.[0]?.commit?.committer?.date;
+      if (!iso) return null;
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return null;
+      const pad = (n) => String(n).padStart(2, "0");
+      return `${d.getFullYear()}.${pad(d.getMonth() + 1)}.${pad(d.getDate())}`;
+    } catch {
+      return null;
+    }
+  }
+
   window.RANKINGS_READY = fetch("rankings.csv", { cache: "no-cache" })
     .then((res) => {
       if (!res.ok) throw new Error(`Failed to load rankings.csv: ${res.status}`);
       return res.text();
     })
-    .then((csv) => {
+    .then(async (csv) => {
       const parsed = Papa.parse(csv, {
         header: true,
         skipEmptyLines: true,
@@ -202,7 +222,14 @@
         const vals = rows.map((r) => r[k]).filter((v) => v != null);
         window.BEST[k] = vals.length ? Math.min(...vals) : null;
       });
-      window.RANKINGS_META = { ...META, recordCount: rows.length };
+
+      // 先用 META.lastUpdated 作為預設，再用 GitHub 最新 commit 日期覆蓋
+      const liveLastUpdated = await fetchLastUpdatedFromGitHub();
+      window.RANKINGS_META = {
+        ...META,
+        lastUpdated: liveLastUpdated || META.lastUpdated,
+        recordCount: rows.length,
+      };
     })
     .catch((err) => {
       console.error("[data] fatal:", err);
