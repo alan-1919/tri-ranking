@@ -351,7 +351,49 @@
   margin-top: 1px;
 }
 .adm-th-action { width: 56px; min-width: 56px; }
+.adm-th-drag { width: 36px; min-width: 36px; }
 .adm-th:last-child { border-right: 0; }
+
+/* drag handle */
+.adm-drag-cell {
+  width: 36px;
+  min-width: 36px;
+  padding: 0 !important;
+  text-align: center;
+}
+.adm-drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  cursor: grab;
+  color: var(--mute-2, #a1a1aa);
+  user-select: none;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -2px;
+  transition: background 0.1s, color 0.1s;
+}
+.adm-drag-handle:hover {
+  background: var(--bg-2, #fafafa);
+  color: var(--ink, #18181b);
+}
+.adm-drag-handle:active {
+  cursor: grabbing;
+  background: var(--accent, #0046A8);
+  color: #fff;
+}
+
+/* 拖曳中：來源列半透明 */
+.adm-row-dragging {
+  opacity: 0.35;
+}
+/* 拖曳目標：在頂端畫一條藍線（表示「放在這列前面」） */
+.adm-row-drag-over > td {
+  box-shadow: inset 0 2px 0 0 var(--accent, #0046A8);
+}
 
 .adm-table tbody tr {
   border-top: 1px solid var(--line-2, #f4f4f5);

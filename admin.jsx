@@ -273,9 +273,31 @@ function SaveBanner({ save, onDismiss }) {
   );
 }
 
-function Row({ row, idx, onChange, onDelete }) {
+function Row({ row, idx, onChange, onDelete, drag }) {
+  const isDragging = drag.draggingIdx === idx;
+  const isOver = drag.dragOverIdx === idx && drag.draggingIdx !== null && drag.draggingIdx !== idx;
+  const cls = [
+    isDragging ? "adm-row-dragging" : "",
+    isOver ? "adm-row-drag-over" : "",
+  ].filter(Boolean).join(" ");
   return (
-    <tr>
+    <tr
+      className={cls}
+      onDragOver={(e) => drag.onDragOver(e, idx)}
+      onDragLeave={() => drag.onDragLeave(idx)}
+      onDrop={(e) => drag.onDrop(e, idx)}
+    >
+      <td className="adm-action-cell adm-drag-cell">
+        <span
+          className="adm-drag-handle"
+          title="拖曳重新排序"
+          draggable
+          onDragStart={(e) => drag.onDragStart(e, idx)}
+          onDragEnd={drag.onDragEnd}
+        >
+          ⋮⋮
+        </span>
+      </td>
       <td className="adm-action-cell">
         <button
           className="adm-delete-btn"
@@ -310,6 +332,9 @@ function App() {
   // 儲存
   const [save, setSave] = useState({ phase: "idle", message: null });
   //   phase: idle / saving / success / error
+  // 拖曳排序
+  const [draggingIdx, setDraggingIdx] = useState(null);
+  const [dragOverIdx, setDragOverIdx] = useState(null);
 
   // 載入 CSV
   useEffect(() => {
@@ -404,7 +429,7 @@ function App() {
   }, [rows, originalCsv, status]);
 
   const totalWidth = useMemo(
-    () => COLUMNS.reduce((s, c) => s + c.width, 0) + 56, // + delete col
+    () => COLUMNS.reduce((s, c) => s + c.width, 0) + 56 + 36, // + delete col + drag col
     []
   );
 
@@ -485,6 +510,51 @@ function App() {
     });
     setRows(sorted);
   }
+
+  // 拖曳排序 ─ 拖曳的是 ⋮⋮ 把手，drop 到目標列就插到那列的位置（上方為主）
+  function dragOnStart(e, idx) {
+    setDraggingIdx(idx);
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", String(idx)); // Firefox 需要 setData 才會啟動拖曳
+  }
+  function dragOnOver(e, idx) {
+    if (draggingIdx === null) return;
+    e.preventDefault(); // 必要：允許 drop
+    e.dataTransfer.dropEffect = "move";
+    if (dragOverIdx !== idx) setDragOverIdx(idx);
+  }
+  function dragOnLeave(idx) {
+    if (dragOverIdx === idx) setDragOverIdx(null);
+  }
+  function dragOnEnd() {
+    setDraggingIdx(null);
+    setDragOverIdx(null);
+  }
+  function dragOnDrop(e, targetIdx) {
+    e.preventDefault();
+    if (draggingIdx === null || draggingIdx === targetIdx) {
+      dragOnEnd();
+      return;
+    }
+    setRows((prev) => {
+      const next = prev.slice();
+      const [moved] = next.splice(draggingIdx, 1);
+      next.splice(targetIdx, 0, moved);
+      // 自動重編 rank 為 1..N
+      next.forEach((r, i) => { r.rank = String(i + 1); });
+      return next;
+    });
+    dragOnEnd();
+  }
+  const dragApi = {
+    draggingIdx,
+    dragOverIdx,
+    onDragStart: dragOnStart,
+    onDragOver: dragOnOver,
+    onDragLeave: dragOnLeave,
+    onDragEnd: dragOnEnd,
+    onDrop: dragOnDrop,
+  };
 
   function handleReset() {
     if (!window.confirm("確定捨棄所有未儲存的修改？")) return;
@@ -672,6 +742,7 @@ function App() {
         <table className="adm-table" style={{ minWidth: `${totalWidth}px` }}>
           <thead>
             <tr>
+              <th className="adm-th adm-th-drag" title="拖曳排序">　</th>
               <th className="adm-th adm-th-action">　</th>
               {COLUMNS.map((c) => (
                 <th key={c.key} className={`adm-th adm-th-${c.key}`} style={{ minWidth: `${c.width}px` }}>
@@ -683,18 +754,25 @@ function App() {
           </thead>
           <tbody>
             {displayedRows.map(({ row, idx }) => (
-              <Row key={idx} row={row} idx={idx} onChange={handleChange} onDelete={handleDelete} />
+              <Row
+                key={idx}
+                row={row}
+                idx={idx}
+                onChange={handleChange}
+                onDelete={handleDelete}
+                drag={dragApi}
+              />
             ))}
             {rows.length === 0 && (
               <tr>
-                <td colSpan={COLUMNS.length + 1} className="adm-empty">
+                <td colSpan={COLUMNS.length + 2} className="adm-empty">
                   尚無資料 — 點上方「＋ 新增一列」開始
                 </td>
               </tr>
             )}
             {rows.length > 0 && displayedRows.length === 0 && (
               <tr>
-                <td colSpan={COLUMNS.length + 1} className="adm-empty">
+                <td colSpan={COLUMNS.length + 2} className="adm-empty">
                   沒有符合條件的資料 — <button className="adm-link-btn" onClick={clearFilters}>清除篩選</button>
                 </td>
               </tr>
