@@ -52,6 +52,7 @@
     "賴柏伶": "Pai-Ling Lai",
     "廖健妤": "Chien-Yu Liao",
     "蔡文雅": "Wen-Ya Tsai",
+    "曾郁雅": "Yu-Ya Tseng",
   };
 
   // Race-code lookup. Add a row when CSV uses a new race code.

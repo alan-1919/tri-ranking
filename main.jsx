@@ -103,8 +103,13 @@ function App() {
         </div>
       </header>
 
+      <section className="hero-banner" aria-label="女力 Female Power">
+        <div className="hero-banner-inner">
+          <div className="hero-banner-bg" aria-hidden="true"></div>
+        </div>
+      </section>
+
       <main className="page-body">
-        <StatsBanner onPickRecord={setPicked} />
         <TablePodium onPick={setPicked} mode="page" />
       </main>
 

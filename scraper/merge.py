@@ -55,6 +55,7 @@ RACE_CODE_BY_IM_SLUG = {
 SHORTENED_SLUGS = {
     "2025041303",  # IM 澎湖 2025：swim 1.9km
     "2024042701",  # CT 2024：T1 異常、swim 異常
+    "2020101730",  # 2020 普悠瑪：swim 1.9km（縮短版，可能 COVID 期間）
 }
 # IRONMAN.com 上「特定年份」被縮短的賽事；用 (slug, year) tuple 標記
 # 2025 IM 澎湖 swim 1.9km；2026 swim 已恢復 3.8km（看實際資料）
