@@ -226,8 +226,8 @@ function App() {
               </svg>
             </div>
             <div className="page-head-titles">
-              <h1>台灣女子 226 公里長距離鐵人三項 · 歷代前 30 傑</h1>
-              <div className="page-head-en">Taiwan Women&apos;s 226km Long-Course Triathlon · All-Time Top 30</div>
+              <h1>台灣女子 226 公里超級鐵人三項 · 歷史排行榜</h1>
+              <div className="page-head-en">Taiwan Women&apos;s 226km Full Distance Triathlon · All-Time Ranking</div>
             </div>
           </div>
           <div className="page-head-meta">
