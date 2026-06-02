@@ -1119,11 +1119,15 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
 }
 
-/* 圖片背景層：使用 banner-female-power.png */
+/* 圖片背景層（圖片 URL 由 JSX 端 inline style 控制） */
 .hero-banner-bg {
   position: absolute;
   inset: 0;
-  background: url('images/banner-female-power.png') center center / cover no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* 沒輪播時的 fallback */
+  background-image: url('images/banner-female-power.png');
 }
 
 /* 圖片版本不需要文字遮罩 + 紋理（圖片已自帶設計）→ 全部隱藏 */
@@ -1207,11 +1211,136 @@ a:hover { text-decoration: underline; }
   to   { opacity: 1; }
 }
 
+/* ============================================================ */
+/* HERO CAROUSEL — 多張 banner 輪播                              */
+/* ============================================================ */
+
+/* 每張 slide 疊在同個位置，靠 opacity fade 切換 */
+.hero-carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+}
+.hero-carousel-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+.hero-carousel-slide-link {
+  position: absolute;
+  inset: 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* 文字 overlay（淺漸層底，文字白色） */
+.hero-carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 40px 56px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.35) 80%);
+  z-index: 3;
+  pointer-events: none;
+  color: #fff;
+}
+.hero-carousel-title {
+  font-family: var(--font-zh);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.hero-carousel-subtitle {
+  margin-top: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* 左右箭頭 */
+.hero-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 0;
+  color: #18181b;
+  font-size: 28px;
+  line-height: 0;
+  cursor: pointer;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.15s;
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel:hover .hero-carousel-arrow,
+.hero-carousel-arrow:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hero-carousel-arrow:hover { background: #fff; }
+.hero-carousel-arrow:active { transform: translateY(-50%) scale(0.95); }
+.hero-carousel-prev { left: 24px; }
+.hero-carousel-next { right: 24px; }
+
+/* 底部 dots */
+.hero-carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 4;
+}
+.hero-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, width 0.2s;
+}
+.hero-carousel-dot:hover { background: rgba(255, 255, 255, 0.75); }
+.hero-carousel-dot.is-active {
+  background: #fff;
+  width: 24px;
+}
+
 /* 響應式：高度按比例縮小（保持圖片視覺完整） */
 @media (max-width: 1024px) {
   .hero-banner { height: 280px; }
+  .hero-carousel-caption { padding: 18px 24px 42px; }
+  .hero-carousel-title { font-size: 22px; }
+  .hero-carousel-arrow { width: 36px; height: 36px; font-size: 22px; opacity: 1; pointer-events: auto; }
+  .hero-carousel-prev { left: 12px; }
+  .hero-carousel-next { right: 12px; }
 }
 
 @media (max-width: 700px) {
   .hero-banner { height: 180px; }
+  .hero-carousel-caption { padding: 12px 16px 32px; }
+  .hero-carousel-title { font-size: 18px; }
+  .hero-carousel-subtitle { font-size: 10px; letter-spacing: 0.12em; }
+  .hero-carousel-arrow { width: 32px; height: 32px; font-size: 20px; }
+  .hero-carousel-dots { bottom: 12px; }
 }

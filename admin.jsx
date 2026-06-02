@@ -6,7 +6,7 @@
 //
 // 階段 2 才接 GitHub OAuth + 直接 commit。
 
-const { useState, useEffect, useMemo } = React;
+const { useState, useEffect, useMemo, useRef } = React;
 
 const COLUMNS = [
   { key: "rank",          label: "#",            width: 56,  hint: "排名（依總成績升序）" },
@@ -153,19 +153,111 @@ function base64ToUtf8(b64) {
   return new TextDecoder("utf-8").decode(bytes);
 }
 
-async function getCsvSha(token) {
-  const { owner, repo, csvPath, branch } = CFG.github;
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${csvPath}?ref=${branch}`;
+// ─── 通用 GitHub Contents API helper（讀 SHA + PUT 任何檔案） ────────
+// 一個檔案的 PUT 流程：
+//   1) GET /contents/<path>?ref=<branch> → 拿 sha（檔案不存在會 404 → 回 null）
+//   2) PUT /contents/<path>，body 帶 { message, content(base64), sha?, branch }
+//      sha 有給代表「更新現有檔」、沒給代表「新增檔案」
+async function getFileSha(token, path) {
+  const { owner, repo, branch } = CFG.github;
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
   const resp = await fetch(url, {
     headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
   });
-  if (!resp.ok) throw new Error(`讀 CSV SHA 失敗 HTTP ${resp.status}`);
+  if (resp.status === 404) return null; // 檔案不存在 → 之後 PUT 不帶 sha 即可
+  if (!resp.ok) throw new Error(`讀 ${path} SHA 失敗 HTTP ${resp.status}`);
   return resp.json();
 }
 
+async function putFile(token, path, contentString, commitMessage, sha) {
+  const { owner, repo, branch } = CFG.github;
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  const body = {
+    message: commitMessage,
+    content: utf8ToBase64(contentString),
+    branch,
+  };
+  if (sha) body.sha = sha;
+  const resp = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  const data = await resp.json().catch(() => ({}));
+  if (!resp.ok) throw new Error(data.message || `PUT ${path} 失敗 HTTP ${resp.status}`);
+  return data;
+}
+
+// CSV 專用 wrapper（保留語意 + 不破壞既有呼叫）
+async function getCsvSha(token) {
+  const { csvPath } = CFG.github;
+  const meta = await getFileSha(token, csvPath);
+  if (!meta) throw new Error(`找不到 ${csvPath}（可能尚未 commit 到 repo）`);
+  return meta;
+}
 async function putCsv(token, sha, csvWithBom, commitMessage) {
-  const { owner, repo, csvPath, branch } = CFG.github;
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${csvPath}`;
+  return putFile(token, CFG.github.csvPath, csvWithBom, commitMessage, sha);
+}
+
+function nowTimestamp() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+// ─── 圖片上傳（給 BannerThumb 用） ─────────────────────────
+// 限制：GitHub Contents API 對 PUT 檔案 < 1 MB 最穩，> 5 MB 直接擋掉
+const UPLOAD_MAX_BYTES = 5 * 1024 * 1024;
+const UPLOAD_ACCEPT_TYPES = ["image/png", "image/jpeg", "image/webp", "image/gif"];
+
+function bytesToBase64(bytes) {
+  // 分塊處理避免 String.fromCharCode 超過引數上限
+  let bin = "";
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+  }
+  return btoa(bin);
+}
+
+function sanitizeFilename(name) {
+  const base = String(name || "").split("/").pop().split("\\").pop();
+  // 只留 word + 點 + 連字號；空白與 CJK 全轉底線；最多砍開頭結尾的底線
+  return base.replace(/[^\w.\-]+/g, "_").replace(/^_+|_+$/g, "") || "image";
+}
+
+async function uploadBannerImage(token, file) {
+  if (!file) throw new Error("沒有檔案");
+  if (!UPLOAD_ACCEPT_TYPES.includes(file.type)) {
+    throw new Error(`不支援的檔案類型 ${file.type || "(未知)"}；請用 PNG / JPG / WebP / GIF`);
+  }
+  if (file.size > UPLOAD_MAX_BYTES) {
+    const mb = (file.size / 1024 / 1024).toFixed(1);
+    throw new Error(`檔案 ${mb} MB 超過上限 5 MB；請先壓縮再上傳`);
+  }
+
+  const safe = sanitizeFilename(file.name);
+  let path = `images/banners/${safe}`;
+
+  // 若同名已存在 → 自動加時間 suffix 避免覆蓋
+  const existing = await getFileSha(token, path);
+  if (existing) {
+    const dotIdx = safe.lastIndexOf(".");
+    const base = dotIdx > 0 ? safe.slice(0, dotIdx) : safe;
+    const ext = dotIdx > 0 ? safe.slice(dotIdx) : "";
+    const ts = Date.now().toString(36);
+    path = `images/banners/${base}-${ts}${ext}`;
+  }
+
+  const buf = await file.arrayBuffer();
+  const base64 = bytesToBase64(new Uint8Array(buf));
+
+  const { owner, repo, branch } = CFG.github;
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   const resp = await fetch(url, {
     method: "PUT",
     headers: {
@@ -174,21 +266,14 @@ async function putCsv(token, sha, csvWithBom, commitMessage) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: commitMessage,
-      content: utf8ToBase64(csvWithBom),
-      sha,
+      message: `後台上傳 banner 圖：${path}`,
+      content: base64,
       branch,
     }),
   });
   const data = await resp.json().catch(() => ({}));
-  if (!resp.ok) throw new Error(data.message || `PUT 失敗 HTTP ${resp.status}`);
-  return data;
-}
-
-function nowTimestamp() {
-  const d = new Date();
-  const pad = (n) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  if (!resp.ok) throw new Error(data.message || `上傳失敗 HTTP ${resp.status}`);
+  return path;
 }
 
 // ───── components ─────────────────────────────────────────────
@@ -335,6 +420,8 @@ function App() {
   // 拖曳排序
   const [draggingIdx, setDraggingIdx] = useState(null);
   const [dragOverIdx, setDragOverIdx] = useState(null);
+  // tab 切換
+  const [activeTab, setActiveTab] = useState("rankings"); // rankings | banners
 
   // 載入 CSV
   useEffect(() => {
@@ -650,6 +737,31 @@ function App() {
         </div>
       </header>
 
+      <nav className="adm-tabs" role="tablist">
+        <button
+          className={`adm-tab ${activeTab === "rankings" ? "is-active" : ""}`}
+          onClick={() => setActiveTab("rankings")}
+          role="tab"
+          aria-selected={activeTab === "rankings"}
+        >
+          排行榜
+        </button>
+        <button
+          className={`adm-tab ${activeTab === "banners" ? "is-active" : ""}`}
+          onClick={() => setActiveTab("banners")}
+          role="tab"
+          aria-selected={activeTab === "banners"}
+        >
+          Banner 管理
+        </button>
+      </nav>
+
+      {activeTab === "banners" && (
+        <BannerEditor auth={auth} />
+      )}
+
+      {activeTab === "rankings" && (
+      <React.Fragment>
       <div className="adm-toolbar">
         <div className="adm-toolbar-left">
           <button className="adm-btn" onClick={handleAdd}>＋ 新增一列</button>
@@ -791,6 +903,461 @@ function App() {
           {cfgReady()
             ? "✓ 階段 2：登入 GitHub 後可直接一鍵 commit。下載 CSV 仍保留作為備援。"
             : "⚠ 階段 2 未完成：請見 worker/README.md 設定 OAuth + Worker 後填好 admin.config.js"}
+        </div>
+      </footer>
+      </React.Fragment>
+      )}
+    </React.Fragment>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// BannerEditor — 編輯 banners.json
+// 跟 rankings 共用同一個登入 token 與 GitHub API helper。
+// ──────────────────────────────────────────────────────────────────
+function genSlideId() {
+  return "s" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+}
+
+function defaultBanners() {
+  return { config: { autoplay: true, intervalMs: 5000 }, slides: [] };
+}
+
+// ─── BannerThumb：縮圖區塊，可拖檔 / 點擊上傳 ──────────────────
+function BannerThumb({ slide, auth, onUploaded }) {
+  const inputRef = useRef(null);
+  const [uploading, setUploading] = useState(false);
+  const [dragOver, setDragOver] = useState(false);
+  const [error, setError] = useState(null);
+
+  async function handleFile(file) {
+    if (!file) return;
+    setError(null);
+    if (auth.phase !== "authed") {
+      setError("請先用 GitHub 登入");
+      return;
+    }
+    const token = sessionStorage.getItem(SESSION_KEY);
+    if (!token) { setError("Session 過期，請重新登入"); return; }
+
+    setUploading(true);
+    try {
+      const path = await uploadBannerImage(token, file);
+      onUploaded(path);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  function onDragEnter(e) {
+    if (!e.dataTransfer.types?.includes("Files")) return;
+    e.preventDefault();
+    e.stopPropagation();
+    setDragOver(true);
+  }
+  function onDragOver(e) {
+    if (!e.dataTransfer.types?.includes("Files")) return;
+    e.preventDefault();
+    e.stopPropagation();
+    e.dataTransfer.dropEffect = "copy";
+    setDragOver(true);
+  }
+  function onDragLeave(e) {
+    e.stopPropagation();
+    setDragOver(false);
+  }
+  function onDrop(e) {
+    if (!e.dataTransfer.files?.length) return;
+    e.preventDefault();
+    e.stopPropagation();
+    setDragOver(false);
+    handleFile(e.dataTransfer.files[0]);
+  }
+  function onClick() {
+    if (uploading) return;
+    inputRef.current?.click();
+  }
+  function onFilePicked(e) {
+    handleFile(e.target.files?.[0]);
+    e.target.value = ""; // 重置；同檔再選一次也能觸發 change
+  }
+
+  const cls = [
+    "adm-banner-thumb",
+    "adm-banner-thumb-drop",
+    uploading ? "is-uploading" : "",
+    dragOver ? "is-drag-over" : "",
+    !slide.image ? "is-empty" : "",
+  ].filter(Boolean).join(" ");
+
+  return (
+    <div className="adm-banner-thumb-wrap">
+      <div
+        className={cls}
+        onClick={onClick}
+        onDragEnter={onDragEnter}
+        onDragOver={onDragOver}
+        onDragLeave={onDragLeave}
+        onDrop={onDrop}
+        title={uploading ? "上傳中" : "點擊或拖檔上傳圖片"}
+      >
+        {slide.image
+          ? <img src={slide.image} alt="" onError={(e) => { e.currentTarget.style.opacity = 0.2; }} />
+          : <span className="adm-banner-thumb-empty">拖檔 / 點擊<br/>上傳圖片</span>}
+
+        <div className="adm-banner-thumb-overlay">
+          {uploading ? "⏳ 上傳中…" : "↑ 換圖"}
+        </div>
+
+        <input
+          ref={inputRef}
+          type="file"
+          accept={UPLOAD_ACCEPT_TYPES.join(",")}
+          hidden
+          onChange={onFilePicked}
+        />
+      </div>
+      {error && <div className="adm-banner-thumb-error" title={error}>{error}</div>}
+    </div>
+  );
+}
+
+function BannerEditor({ auth }) {
+  const [data, setData] = useState(null);
+  const [originalJson, setOriginalJson] = useState("");
+  const [status, setStatus] = useState("loading");
+  const [error, setError] = useState(null);
+  const [save, setSave] = useState({ phase: "idle", message: null });
+  const [dragIdx, setDragIdx] = useState(null);
+  const [dragOverIdx, setDragOverIdx] = useState(null);
+
+  // 載入 banners.json（不存在 → 視為空配置，下次儲存會建立檔案）
+  useEffect(() => {
+    fetch("banners.json", { cache: "no-cache" })
+      .then((r) => {
+        if (r.status === 404) return null;
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.text();
+      })
+      .then((text) => {
+        if (text == null) {
+          setData(defaultBanners());
+          setOriginalJson("");
+          setStatus("ready");
+          return;
+        }
+        setOriginalJson(text);
+        try {
+          const j = JSON.parse(text);
+          // 補預設值，避免 null
+          if (!j.config) j.config = { autoplay: true, intervalMs: 5000 };
+          if (!Array.isArray(j.slides)) j.slides = [];
+          // 補 id
+          j.slides.forEach((s) => { if (!s.id) s.id = genSlideId(); });
+          setData(j);
+        } catch (e) {
+          setError(`banners.json 解析失敗：${e.message}`);
+          setData(defaultBanners());
+        }
+        setStatus("ready");
+      })
+      .catch((e) => {
+        setError(e.message);
+        setStatus("error");
+      });
+  }, []);
+
+  // 標準化輸出格式（排序欄位、移除 undefined、整齊縮排）
+  const buildJson = (d) => {
+    const config = {
+      autoplay: !!d.config?.autoplay,
+      intervalMs: Math.max(2000, Number(d.config?.intervalMs) || 5000),
+    };
+    const slides = (d.slides || []).map((s) => ({
+      id: s.id || genSlideId(),
+      image: s.image || "",
+      title: s.title || "",
+      subtitle: s.subtitle || "",
+      alt: s.alt || "",
+      link: s.link || "",
+    }));
+    return JSON.stringify({ config, slides }, null, 2) + "\n";
+  };
+
+  const dirty = useMemo(() => {
+    if (!data) return false;
+    // originalJson 為空字串代表檔案原本不存在，有新增任何內容就算 dirty
+    if (!originalJson) return (data.slides || []).length > 0;
+    return buildJson(data) !== originalJson;
+  }, [data, originalJson]);
+
+  // ── 編輯 handlers ─────────────────────────────────────────────
+  function updateConfig(key, value) {
+    setData((prev) => ({ ...prev, config: { ...prev.config, [key]: value } }));
+  }
+  function updateSlide(idx, key, value) {
+    setData((prev) => {
+      const next = { ...prev, slides: prev.slides.slice() };
+      next.slides[idx] = { ...next.slides[idx], [key]: value };
+      return next;
+    });
+  }
+  function addSlide() {
+    setData((prev) => ({
+      ...prev,
+      slides: [
+        ...prev.slides,
+        { id: genSlideId(), image: "", title: "", subtitle: "", alt: "", link: "" },
+      ],
+    }));
+  }
+  function deleteSlide(idx) {
+    const s = data.slides[idx];
+    const label = s.title || s.image || `第 ${idx + 1} 張`;
+    if (!window.confirm(`刪除 banner「${label}」？`)) return;
+    setData((prev) => ({ ...prev, slides: prev.slides.filter((_, i) => i !== idx) }));
+  }
+  function handleReset() {
+    if (!window.confirm("捨棄所有未儲存的修改？")) return;
+    if (!originalJson) {
+      setData(defaultBanners());
+    } else {
+      try {
+        const j = JSON.parse(originalJson);
+        if (!j.config) j.config = { autoplay: true, intervalMs: 5000 };
+        if (!Array.isArray(j.slides)) j.slides = [];
+        j.slides.forEach((s) => { if (!s.id) s.id = genSlideId(); });
+        setData(j);
+      } catch {
+        setData(defaultBanners());
+      }
+    }
+  }
+
+  // ── 拖曳 ─────────────────────────────────────────────────────
+  function onDragStart(e, idx) {
+    setDragIdx(idx);
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", String(idx));
+  }
+  function onDragOver(e, idx) {
+    if (dragIdx === null) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    if (dragOverIdx !== idx) setDragOverIdx(idx);
+  }
+  function onDragEnd() {
+    setDragIdx(null);
+    setDragOverIdx(null);
+  }
+  function onDrop(e, targetIdx) {
+    e.preventDefault();
+    if (dragIdx === null || dragIdx === targetIdx) { onDragEnd(); return; }
+    setData((prev) => {
+      const arr = prev.slides.slice();
+      const [moved] = arr.splice(dragIdx, 1);
+      arr.splice(targetIdx, 0, moved);
+      return { ...prev, slides: arr };
+    });
+    onDragEnd();
+  }
+
+  // ── 儲存 ─────────────────────────────────────────────────────
+  async function handleSave() {
+    if (auth.phase !== "authed") return;
+    if (!dirty) {
+      setSave({ phase: "idle", message: "沒有變更可儲存" });
+      return;
+    }
+    if (!window.confirm(`即將提交 banners.json 到 ${CFG.github.owner}/${CFG.github.repo}@${CFG.github.branch}，確定？`)) return;
+
+    const token = sessionStorage.getItem(SESSION_KEY);
+    if (!token) {
+      setSave({ phase: "error", message: "session 過期，請重新登入" });
+      return;
+    }
+
+    setSave({ phase: "saving", message: "讀取目前版本…" });
+    try {
+      const meta = await getFileSha(token, "banners.json"); // 不存在會回 null
+      const newJson = buildJson(data);
+      const message = `後台更新 banners.json：${nowTimestamp()} by ${auth.user.login}`;
+      setSave({ phase: "saving", message: "送出 commit…" });
+      const result = await putFile(token, "banners.json", newJson, message, meta?.sha);
+      setOriginalJson(newJson);
+      const sha7 = (result.commit?.sha || "").slice(0, 7);
+      const htmlUrl = result.commit?.html_url;
+      setSave({ phase: "success", message: `已 commit ${sha7}`, url: htmlUrl });
+    } catch (e) {
+      setSave({ phase: "error", message: e.message });
+    }
+  }
+
+  // ── 渲染 ─────────────────────────────────────────────────────
+  if (status === "loading") {
+    return <div className="adm-status"><div className="adm-status-zh">載入 banners.json…</div></div>;
+  }
+  if (status === "error") {
+    return (
+      <div className="adm-status adm-status-error">
+        <div className="adm-status-zh">無法載入 banners.json</div>
+        <pre className="adm-status-trace">{String(error)}</pre>
+      </div>
+    );
+  }
+
+  const slides = data.slides || [];
+
+  return (
+    <React.Fragment>
+      <div className="adm-toolbar">
+        <div className="adm-toolbar-left">
+          <button className="adm-btn" onClick={addSlide}>＋ 新增 Banner</button>
+          <button className="adm-btn adm-btn-secondary" onClick={handleReset} disabled={!dirty}>
+            捨棄修改
+          </button>
+        </div>
+        <div className="adm-toolbar-right">
+          <span className={`adm-dirty ${dirty ? "is-dirty" : ""}`}>
+            {dirty ? `● 未儲存的修改` : `○ 未修改`}
+          </span>
+          <button
+            className="adm-btn adm-btn-primary"
+            onClick={handleSave}
+            disabled={auth.phase !== "authed" || !dirty || save.phase === "saving"}
+            title={auth.phase !== "authed" ? "登入後才能儲存" : (!dirty ? "沒有變更" : "提交 commit")}
+          >
+            {save.phase === "saving" ? "⏳ 儲存中…" : "✓ 儲存到 GitHub"}
+          </button>
+        </div>
+      </div>
+
+      <SaveBanner save={save} onDismiss={() => setSave({ phase: "idle", message: null })} />
+
+      {error && (
+        <div className="adm-banner-warn">⚠ {error}</div>
+      )}
+
+      <div className="adm-banner-config">
+        <label className="adm-banner-cfg-item">
+          <input
+            type="checkbox"
+            checked={!!data.config?.autoplay}
+            onChange={(e) => updateConfig("autoplay", e.target.checked)}
+          />
+          自動播放
+        </label>
+        <label className="adm-banner-cfg-item">
+          切換間隔（ms）
+          <input
+            type="number"
+            min={2000}
+            max={20000}
+            step={500}
+            value={data.config?.intervalMs ?? 5000}
+            onChange={(e) => updateConfig("intervalMs", Number(e.target.value))}
+          />
+          <span className="adm-banner-cfg-hint">
+            ≈ {((Number(data.config?.intervalMs) || 5000) / 1000).toFixed(1)} 秒
+          </span>
+        </label>
+      </div>
+
+      {slides.length === 0 ? (
+        <div className="adm-empty" style={{ padding: "60px 20px" }}>
+          尚無 Banner — 點上方「＋ 新增 Banner」開始
+        </div>
+      ) : (
+        <ul className="adm-banner-list">
+          {slides.map((s, i) => {
+            const isDrag = dragIdx === i;
+            const isOver = dragOverIdx === i && dragIdx !== null && dragIdx !== i;
+            return (
+              <li
+                key={s.id || i}
+                className={`adm-banner-item ${isDrag ? "is-dragging" : ""} ${isOver ? "is-drag-over" : ""}`}
+                onDragOver={(e) => onDragOver(e, i)}
+                onDrop={(e) => onDrop(e, i)}
+              >
+                <span
+                  className="adm-banner-drag"
+                  title="拖曳排序"
+                  draggable
+                  onDragStart={(e) => onDragStart(e, i)}
+                  onDragEnd={onDragEnd}
+                >⋮⋮</span>
+
+                <BannerThumb
+                  slide={s}
+                  auth={auth}
+                  onUploaded={(path) => updateSlide(i, "image", path)}
+                />
+
+                <div className="adm-banner-fields">
+                  <label className="adm-banner-field adm-banner-field-image">
+                    <span>圖片路徑</span>
+                    <input
+                      type="text"
+                      value={s.image}
+                      placeholder="images/banners/xxx.png"
+                      onChange={(e) => updateSlide(i, "image", e.target.value)}
+                    />
+                  </label>
+                  <label className="adm-banner-field">
+                    <span>標題</span>
+                    <input
+                      type="text"
+                      value={s.title}
+                      placeholder="（留空 = 不顯示文字）"
+                      onChange={(e) => updateSlide(i, "title", e.target.value)}
+                    />
+                  </label>
+                  <label className="adm-banner-field">
+                    <span>副標題</span>
+                    <input
+                      type="text"
+                      value={s.subtitle}
+                      placeholder="（可空）"
+                      onChange={(e) => updateSlide(i, "subtitle", e.target.value)}
+                    />
+                  </label>
+                  <label className="adm-banner-field">
+                    <span>連結（可空）</span>
+                    <input
+                      type="text"
+                      value={s.link}
+                      placeholder="https://..."
+                      onChange={(e) => updateSlide(i, "link", e.target.value)}
+                    />
+                  </label>
+                  <label className="adm-banner-field">
+                    <span>Alt 文字</span>
+                    <input
+                      type="text"
+                      value={s.alt}
+                      placeholder="（無障礙描述，可空）"
+                      onChange={(e) => updateSlide(i, "alt", e.target.value)}
+                    />
+                  </label>
+                </div>
+
+                <button
+                  className="adm-delete-btn adm-banner-del"
+                  onClick={() => deleteSlide(i)}
+                  title="刪除這張 banner"
+                >✕</button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+
+      <footer className="adm-foot">
+        <div>共 {slides.length} 張 banner</div>
+        <div className="adm-foot-hint">
+          階段 B：可直接編輯文字、新增、刪除、拖曳排序。階段 C 會加上「拖檔上傳圖片」。
         </div>
       </footer>
     </React.Fragment>

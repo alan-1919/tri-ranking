@@ -3,6 +3,143 @@
 
 const { useState, useEffect, useMemo } = React;
 
+// ─── HeroCarousel ─────────────────────────────────────────────────────
+// 載入 banners.json → 顯示輪播。
+// 行為：
+//   - 多張 slide：自動播放（hover 上去暫停）+ 左右箭頭 + 底部 dots
+//   - 單張 slide：自動隱藏所有控制
+//   - 載入失敗：fallback 顯示舊版女力靜態圖（保留現有體驗）
+function HeroCarousel() {
+  const [data, setData] = useState(null);
+  const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    fetch("banners.json", { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        if (j && Array.isArray(j.slides) && j.slides.length > 0) setData(j);
+      })
+      .catch(() => {});
+  }, []);
+
+  const slides = data?.slides || [];
+  const config = data?.config || {};
+  const autoplay = config.autoplay !== false && slides.length > 1;
+  const intervalMs = Math.max(2000, Number(config.intervalMs) || 5000);
+
+  useEffect(() => {
+    if (!autoplay || paused) return;
+    const t = setInterval(() => setIdx((i) => (i + 1) % slides.length), intervalMs);
+    return () => clearInterval(t);
+  }, [autoplay, paused, slides.length, intervalMs]);
+
+  // Fallback：未載入到 banners.json 時，沿用原本的靜態女力圖
+  if (!data) {
+    return (
+      <section className="hero-banner" aria-label="女力 Female Power">
+        <div className="hero-banner-inner">
+          <div className="hero-banner-bg" aria-hidden="true"></div>
+        </div>
+      </section>
+    );
+  }
+
+  const go = (next) => {
+    const n = slides.length;
+    setIdx(((next % n) + n) % n);
+  };
+
+  return (
+    <section
+      className="hero-banner hero-carousel"
+      aria-label="Banner 輪播"
+      aria-roledescription="carousel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="hero-banner-inner">
+        {slides.map((s, i) => {
+          const active = i === idx;
+          const inner = (
+            <React.Fragment>
+              <div
+                className="hero-banner-bg"
+                role="img"
+                aria-label={s.alt || s.title || ""}
+                style={{ backgroundImage: `url('${s.image}')` }}
+              />
+              {(s.title || s.subtitle) && (
+                <div className="hero-carousel-caption">
+                  {s.title && <div className="hero-carousel-title">{s.title}</div>}
+                  {s.subtitle && <div className="hero-carousel-subtitle">{s.subtitle}</div>}
+                </div>
+              )}
+            </React.Fragment>
+          );
+          const linked = s.link
+            ? (
+              <a
+                className="hero-carousel-slide-link"
+                href={s.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex={active ? 0 : -1}
+                aria-hidden={!active}
+              >
+                {inner}
+              </a>
+            )
+            : inner;
+          return (
+            <div
+              key={s.id || i}
+              className={`hero-carousel-slide ${active ? "is-active" : ""}`}
+              aria-hidden={!active}
+            >
+              {linked}
+            </div>
+          );
+        })}
+
+        {slides.length > 1 && (
+          <React.Fragment>
+            <button
+              className="hero-carousel-arrow hero-carousel-prev"
+              onClick={() => go(idx - 1)}
+              aria-label="上一張"
+              type="button"
+            >
+              ‹
+            </button>
+            <button
+              className="hero-carousel-arrow hero-carousel-next"
+              onClick={() => go(idx + 1)}
+              aria-label="下一張"
+              type="button"
+            >
+              ›
+            </button>
+            <div className="hero-carousel-dots" role="tablist">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === idx}
+                  aria-label={`第 ${i + 1} 張`}
+                  className={`hero-carousel-dot ${i === idx ? "is-active" : ""}`}
+                  onClick={() => setIdx(i)}
+                />
+              ))}
+            </div>
+          </React.Fragment>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function StatsBanner({ onPickRecord }) {
   const stats = useMemo(() => {
     const rows = window.RANKINGS;
@@ -103,11 +240,9 @@ function App() {
         </div>
       </header>
 
-      <section className="hero-banner" aria-label="女力 Female Power">
-        <div className="hero-banner-inner">
-          <div className="hero-banner-bg" aria-hidden="true"></div>
-        </div>
-      </section>
+      <HeroCarousel />
+
+
 
       <main className="page-body">
         <TablePodium onPick={setPicked} mode="page" />

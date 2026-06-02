@@ -137,6 +137,272 @@
 .adm-save-dismiss:hover { opacity: 1; }
 
 /* ============================================================ */
+/* TAB NAV（排行榜 / Banner 管理）                              */
+/* ============================================================ */
+.adm-tabs {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid var(--line, #e4e4e7);
+  padding: 0 28px;
+  gap: 4px;
+}
+.adm-tab {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 12px 18px;
+  font-family: var(--font-zh);
+  font-size: 14px;
+  color: var(--mute-2, #a1a1aa);
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.15s, border-color 0.15s;
+}
+.adm-tab:hover { color: var(--ink, #18181b); }
+.adm-tab.is-active {
+  color: var(--accent, #0046A8);
+  border-bottom-color: var(--accent, #0046A8);
+}
+
+/* ============================================================ */
+/* BANNER EDITOR                                                */
+/* ============================================================ */
+.adm-banner-config {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 14px 28px;
+  background: var(--bg-2, #fafafa);
+  border-bottom: 1px solid var(--line, #e4e4e7);
+  font-family: var(--font-zh);
+  font-size: 13px;
+  align-items: center;
+}
+.adm-banner-cfg-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink, #18181b);
+}
+.adm-banner-cfg-item input[type="number"] {
+  width: 88px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.adm-banner-cfg-hint {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.adm-banner-warn {
+  padding: 10px 28px;
+  background: #fef3c7;
+  border-bottom: 1px solid #fde68a;
+  color: #92400e;
+  font-size: 13px;
+}
+
+.adm-banner-list {
+  list-style: none;
+  margin: 0;
+  padding: 16px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+}
+
+.adm-banner-item {
+  display: grid;
+  grid-template-columns: 28px 120px 1fr 32px;
+  gap: 14px;
+  align-items: stretch;
+  padding: 12px;
+  background: var(--bg-2, #fafafa);
+  border: 1px solid var(--line, #e4e4e7);
+  border-radius: 3px;
+  transition: opacity 0.15s, box-shadow 0.15s;
+}
+.adm-banner-item.is-dragging { opacity: 0.4; }
+.adm-banner-item.is-drag-over { box-shadow: inset 0 2px 0 0 var(--accent, #0046A8); }
+
+.adm-banner-drag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  color: var(--mute-2, #a1a1aa);
+  user-select: none;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -2px;
+  border-radius: 3px;
+  transition: background 0.1s, color 0.1s;
+}
+.adm-banner-drag:hover {
+  background: var(--line);
+  color: var(--ink);
+}
+.adm-banner-drag:active {
+  cursor: grabbing;
+  background: var(--accent);
+  color: #fff;
+}
+
+.adm-banner-thumb-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.adm-banner-thumb {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.adm-banner-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.adm-banner-thumb-empty {
+  color: var(--mute-2);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.4;
+  padding: 8px;
+}
+
+/* dropzone（可拖檔 / 可點擊版本） */
+.adm-banner-thumb-drop {
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.adm-banner-thumb-drop.is-empty {
+  border-style: dashed;
+  background: var(--bg-2, #fafafa);
+}
+.adm-banner-thumb-drop:hover {
+  border-color: var(--accent, #0046A8);
+}
+.adm-banner-thumb-drop:hover .adm-banner-thumb-overlay {
+  opacity: 1;
+}
+.adm-banner-thumb-drop.is-drag-over {
+  border-color: var(--accent, #0046A8);
+  border-style: solid;
+  background: rgba(0, 70, 168, 0.08);
+}
+.adm-banner-thumb-drop.is-drag-over .adm-banner-thumb-overlay {
+  opacity: 1;
+  background: rgba(0, 70, 168, 0.85);
+}
+
+/* hover / 拖入時的 overlay 提示 */
+.adm-banner-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: var(--font-zh);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+/* 上傳中：永遠顯示 overlay + 不可點 */
+.adm-banner-thumb-drop.is-uploading { cursor: progress; }
+.adm-banner-thumb-drop.is-uploading .adm-banner-thumb-overlay {
+  opacity: 1;
+  background: rgba(0, 70, 168, 0.85);
+}
+
+/* 上傳錯誤訊息 */
+.adm-banner-thumb-error {
+  font-family: var(--font-zh);
+  font-size: 11px;
+  color: #b91c1c;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 4px 6px;
+  border-radius: 2px;
+  line-height: 1.3;
+  word-break: break-all;
+  max-width: 120px;
+}
+
+.adm-banner-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+}
+.adm-banner-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-zh);
+}
+.adm-banner-field-image { grid-column: 1 / -1; }
+.adm-banner-field > span {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.adm-banner-field > input {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 6px 8px;
+  font-family: var(--font-zh);
+  font-size: 13px;
+  color: var(--ink);
+  border-radius: 2px;
+  transition: border-color 0.1s, box-shadow 0.1s;
+}
+.adm-banner-field > input:focus {
+  outline: 0;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0, 70, 168, 0.1);
+}
+
+.adm-banner-del {
+  align-self: start;
+  margin-top: 0;
+}
+
+/* RESPONSIVE for banner editor */
+@media (max-width: 768px) {
+  .adm-tabs { padding: 0 14px; }
+  .adm-banner-config { padding: 10px 14px; gap: 12px; }
+  .adm-banner-list { padding: 12px 14px; }
+  .adm-banner-item {
+    grid-template-columns: 28px 1fr 32px;
+    gap: 10px;
+  }
+  .adm-banner-thumb { grid-column: 1 / -1; width: 100%; height: 100px; }
+  .adm-banner-fields { grid-template-columns: 1fr; }
+}
+
+/* ============================================================ */
 /* TOOLBAR                                                      */
 /* ============================================================ */
 .adm-toolbar {

@@ -1,0 +1,29 @@
+{
+  "config": {
+    "autoplay": true,
+    "intervalMs": 5000
+  },
+  "slides": [
+    {
+      "id": "s1",
+      "image": "images/banner-female-power.png",
+      "title": "女力 · TAIWAN",
+      "subtitle": "Female Power",
+      "alt": ""
+    },
+    {
+      "id": "s2",
+      "image": "images/banner-female-power.png",
+      "title": "歷代前 30 傑",
+      "subtitle": "All-Time Top 30",
+      "alt": ""
+    },
+    {
+      "id": "s3",
+      "image": "images/banner-female-power.png",
+      "title": "資料持續更新中",
+      "subtitle": "Continuously Updated",
+      "alt": ""
+    }
+  ]
+}
