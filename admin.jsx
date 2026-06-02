@@ -1356,9 +1356,6 @@ function BannerEditor({ auth }) {
 
       <footer className="adm-foot">
         <div>共 {slides.length} 張 banner</div>
-        <div className="adm-foot-hint">
-          階段 B：可直接編輯文字、新增、刪除、拖曳排序。階段 C 會加上「拖檔上傳圖片」。
-        </div>
       </footer>
     </React.Fragment>
   );
