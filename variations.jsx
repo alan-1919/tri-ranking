@@ -269,10 +269,12 @@ function TablePodium({ onPick, mode = "canvas" }) {
               <button key={r.rank} className={`vb-pod vb-pod-${i + 1}`} onClick={() => onPick(r)}>
                 <div className="vb-pod-top">
                   <Portrait athlete={r} size="lg" />
-                  <div className="vb-pod-rank" style={{ color: meds[i] }}>{ords[i]}</div>
+                  <div className="vb-pod-top-info">
+                    <div className="vb-pod-rank" style={{ color: meds[i] }}>{ords[i]}</div>
+                    <div className="vb-pod-name-zh">{r.name}</div>
+                    <div className="vb-pod-name-en">{r.nameEn}</div>
+                  </div>
                 </div>
-                <div className="vb-pod-name-zh">{r.name}</div>
-                <div className="vb-pod-name-en">{r.nameEn}</div>
                 <div className="vb-pod-time">
                   {window.fmtTime(r.overallSec)}
                   {isBest(r, "overallSec") && <span className="vb-pod-best" title="該欄全榜最佳">●</span>}
