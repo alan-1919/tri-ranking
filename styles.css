@@ -433,9 +433,7 @@ a:hover { text-decoration: underline; }
 }
 /* rank 標記移到照片右上角 */
 .vb-pod-rank {
-  font-family: var(--font-mono);
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 28px;
   line-height: 1;
   margin-bottom: 4px;
 }
