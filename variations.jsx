@@ -273,16 +273,16 @@ function TablePodium({ onPick, mode = "canvas" }) {
                     <div className="vb-pod-rank" style={{ color: meds[i] }}>{ords[i]}</div>
                     <div className="vb-pod-name-zh">{r.name}</div>
                     <div className="vb-pod-name-en">{r.nameEn}</div>
+                    <div className="vb-pod-time">
+                      {window.fmtTime(r.overallSec)}
+                      {isBest(r, "overallSec") && <span className="vb-pod-best" title="該欄全榜最佳">●</span>}
+                    </div>
+                    <div className="vb-pod-meta">
+                      <span>{window.RACES[r.race]?.zh || r.race}</span>
+                      <span className="dot">·</span>
+                      <span>{r.year}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="vb-pod-time">
-                  {window.fmtTime(r.overallSec)}
-                  {isBest(r, "overallSec") && <span className="vb-pod-best" title="該欄全榜最佳">●</span>}
-                </div>
-                <div className="vb-pod-meta">
-                  <span>{window.RACES[r.race]?.zh || r.race}</span>
-                  <span className="dot">·</span>
-                  <span>{r.year}</span>
                 </div>
                 <dl className="vb-pod-splits">
                   <div>
