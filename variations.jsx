@@ -263,7 +263,7 @@ function TablePodium({ onPick, mode = "canvas" }) {
       {podium.length === 3 && (
         <div className="vb-podium">
           {podium.map((r, i) => {
-            const ords = ["①", "②", "③"];
+            const ords = ["🥇", "🥈", "🥉"];
             const meds = ["#C9A14B", "#9CA3AF", "#A66A3A"];
             return (
               <button key={r.rank} className={`vb-pod vb-pod-${i + 1}`} onClick={() => onPick(r)}>
