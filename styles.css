@@ -383,7 +383,7 @@ a:hover { text-decoration: underline; }
 .portrait svg { width: 100%; height: 100%; display: block; }
 .portrait-sm { width: 36px;  height: 36px;  border-radius: 50%; }
 .portrait-md { width: 44px;  height: 44px;  border-radius: 50%; }
-.portrait-lg { width: 96px;  height: 96px; } /* 前三名放大：72 → 96 */
+.portrait-lg { width: 120px;  height: 120px; } /* 前三名放大：72 → 120 */
 .portrait-xl { width: 120px; height: 120px; }
 /* Modal 個人頁：全圖不裁切 */
 .am-head .portrait-xl img {
