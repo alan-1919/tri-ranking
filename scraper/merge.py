@@ -51,6 +51,12 @@ RACE_CODE_BY_IM_SLUG = {
     "im-malaysia": "IM Malaysia",
 }
 
+# sportsplits.com race-slug → 內部 race code
+RACE_CODE_BY_SP_SLUG = {
+    "puyuma-triathlon-day1-2026": "普悠瑪",
+    "challenge-taiwan-day2-2026": "CT",
+}
+
 # 縮短 swim 距離 / 資料異常 → 不計入 PR
 SHORTENED_SLUGS = {
     "2025041303",  # IM 澎湖 2025：swim 1.9km
@@ -197,15 +203,47 @@ def load_current_csv():
 def load_raw_athletes(reverse_en):
     """讀所有 raw/*.json，回傳 athlete 紀錄列表
 
-    支援兩種 JSON 格式：
+    支援三種 JSON 格式：
       - Bravelog（無 source 標示，slug 為 YYYYMMDD#）
       - IRONMAN.com（source=='ironman.com'，slug 如 im-taiwan）
+      - sportsplits.com（source=='sportsplits'，slug 如 challenge-taiwan-day2-2026）
     """
+    import re as _re
     records = []
     for f in sorted(RAW_DIR.glob("*.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
         slug = d["slug"]
         is_ironman = d.get("source") == "ironman.com"
+        is_sportsplits = d.get("source") == "sportsplits"
+
+        if is_sportsplits:
+            race_code = RACE_CODE_BY_SP_SLUG.get(slug, slug)
+            # 從 slug 尾端 -YYYY 取年份
+            ym = _re.search(r"-(\d{4})$", slug)
+            year = int(ym.group(1)) if ym else 0
+            shortened = False  # sportsplits 暫時不維護縮短賽清單
+            for a in d.get("athletes", []):
+                name = a["name"]
+                if has_chinese(name):
+                    normalized = name
+                    matched_zh = None
+                    is_taiwan = True  # 抓的是台灣賽事，假設中文姓名 = 台灣選手
+                else:
+                    matched_zh = find_zh_name(reverse_en, name)
+                    normalized = matched_zh if matched_zh else name
+                    is_taiwan = matched_zh is not None
+                records.append({
+                    **a,
+                    "slug": slug,
+                    "race_code": race_code,
+                    "year": year,
+                    "shortened": shortened,
+                    "normalized_name": normalized,
+                    "matched_zh": matched_zh,
+                    "is_taiwan_confirmed": is_taiwan,
+                    "source_system": "sportsplits",
+                })
+            continue
 
         if is_ironman:
             race_code = RACE_CODE_BY_IM_SLUG.get(slug, slug.replace("im-", "IM ").title())

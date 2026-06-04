@@ -37,6 +37,13 @@ RACE_CODE_BY_SLUG = {
     "2024042701": "CT",
     "2025041303": "IM Penghu",
 }
+
+# sportsplits.com race-slug → 內部 race code
+RACE_CODE_BY_SP_SLUG = {
+    "puyuma-triathlon-day1-2026": "普悠瑪",
+    "challenge-taiwan-day2-2026": "CT",
+}
+
 SHORTENED_SLUGS = {"2025041303", "2024042701", "2020101730"}
 
 
@@ -84,14 +91,33 @@ def main():
     print(f"[1] 現有 CSV: {len(existing_rows)} 筆，欄位 {len(fieldnames)} 個")
 
     # ──── 讀 raw ──────────────────────────────────────────
+    # 接受兩種來源：Bravelog（slug = YYYYMMDD#）與 sportsplits（source='sportsplits'）
+    # IRONMAN.com（source='ironman.com'）的資料**不進主流程**——避免不同來源測量差互覆蓋
     by_name_normal = defaultdict(list)
     for f in sorted(RAW_DIR.glob("*.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
         slug = d["slug"]
         if slug in SHORTENED_SLUGS:
             continue  # 縮短版不算 PR
-        race_code = RACE_CODE_BY_SLUG.get(slug, slug)
-        year = int(slug[:4])
+
+        source = d.get("source", "")
+        if source == "ironman.com":
+            continue  # IM raw 只當參考資料、不寫進 rankings.csv
+
+        if source == "sportsplits":
+            race_code = RACE_CODE_BY_SP_SLUG.get(slug, slug)
+            ym = re.search(r"-(\d{4})$", slug)
+            if not ym:
+                continue  # slug 沒帶年份就跳過
+            year = int(ym.group(1))
+        else:
+            # Bravelog：slug 開頭 4 碼為年份
+            race_code = RACE_CODE_BY_SLUG.get(slug, slug)
+            try:
+                year = int(slug[:4])
+            except ValueError:
+                continue  # 無法判定年份的非預期 slug → 跳過
+
         for a in d.get("athletes", []):
             if not has_chinese(a["name"]):  # 跳過英文姓名
                 continue
