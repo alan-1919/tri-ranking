@@ -1,0 +1,811 @@
+{
+  "slug": "challenge-taiwan-day2-2026",
+  "source": "sportsplits",
+  "event_id": 1,
+  "gender": "Female",
+  "contest_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/gender/Female",
+  "race_name": "Female - CT 226k Individual - Challenge Taiwan Day 2 (2026)",
+  "max_hours_filter": 15,
+  "athletes": [
+    {
+      "name": "AYAKA  SUZUKI",
+      "bib": "1594",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "10:55:06",
+      "overall_sec": 39306,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1594",
+      "splits": {
+        "swim": "01:25:01",
+        "t1": "00:08:07",
+        "bike": "05:43:32",
+        "t2": "00:03:16",
+        "run": "03:35:07"
+      }
+    },
+    {
+      "name": "曾郁雅",
+      "bib": "1599",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "11:44:48",
+      "overall_sec": 42288,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1599",
+      "splits": {
+        "swim": "01:35:14",
+        "t1": "00:11:58",
+        "bike": "05:57:49",
+        "t2": "00:07:18",
+        "run": "03:52:27"
+      }
+    },
+    {
+      "name": "\"TAN, HUI JIN\"",
+      "bib": "1567",
+      "group": "30-34",
+      "club": "",
+      "overall_str": "11:48:45",
+      "overall_sec": 42525,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1567",
+      "splits": {
+        "swim": "01:27:35",
+        "t1": "00:13:10",
+        "bike": "05:31:54",
+        "t2": "00:05:55",
+        "run": "04:30:10"
+      }
+    },
+    {
+      "name": "李紀琳",
+      "bib": "1548",
+      "group": "25-29",
+      "club": "",
+      "overall_str": "12:10:06",
+      "overall_sec": 43806,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1548",
+      "splits": {
+        "swim": "01:52:57",
+        "t1": "00:11:22",
+        "bike": "05:51:00",
+        "t2": "00:06:48",
+        "run": "04:07:57"
+      }
+    },
+    {
+      "name": "林文音",
+      "bib": "1615",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "12:20:15",
+      "overall_sec": 44415,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1615",
+      "splits": {
+        "swim": "01:17:31",
+        "t1": "00:11:59",
+        "bike": "06:14:33",
+        "t2": "00:10:54",
+        "run": "04:25:16"
+      }
+    },
+    {
+      "name": "張雅絢",
+      "bib": "1654",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "12:23:14",
+      "overall_sec": 44594,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1654",
+      "splits": {
+        "swim": "01:36:45",
+        "t1": "00:13:54",
+        "bike": "06:08:32",
+        "t2": "00:12:52",
+        "run": "04:11:09"
+      }
+    },
+    {
+      "name": "林家安",
+      "bib": "1560",
+      "group": "30-34",
+      "club": "",
+      "overall_str": "12:27:20",
+      "overall_sec": 44840,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1560",
+      "splits": {
+        "swim": "01:26:47",
+        "t1": "00:11:35",
+        "bike": "05:48:10",
+        "t2": "00:06:39",
+        "run": "04:54:06"
+      }
+    },
+    {
+      "name": "張莎拉",
+      "bib": "1667",
+      "group": "50-54",
+      "club": "",
+      "overall_str": "12:38:28",
+      "overall_sec": 45508,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1667",
+      "splits": {
+        "swim": "01:24:31",
+        "t1": "00:12:53",
+        "bike": "06:14:16",
+        "t2": "00:11:11",
+        "run": "04:35:35"
+      }
+    },
+    {
+      "name": "林慧娟",
+      "bib": "1625",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "12:42:37",
+      "overall_sec": 45757,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1625",
+      "splits": {
+        "swim": "01:42:29",
+        "t1": "00:11:29",
+        "bike": "06:24:44",
+        "t2": "00:07:03",
+        "run": "04:16:50"
+      }
+    },
+    {
+      "name": "林渝蓉",
+      "bib": "1583",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "12:54:44",
+      "overall_sec": 46484,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1583",
+      "splits": {
+        "swim": "01:15:00",
+        "t1": "00:11:32",
+        "bike": "05:59:35",
+        "t2": "00:14:43",
+        "run": "05:13:53"
+      }
+    },
+    {
+      "name": "吳子凡",
+      "bib": "1576",
+      "group": "30-34",
+      "club": "",
+      "overall_str": "12:56:59",
+      "overall_sec": 46619,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1576",
+      "splits": {
+        "swim": "01:51:42",
+        "t1": "00:14:03",
+        "bike": "06:02:05",
+        "t2": "00:11:19",
+        "run": "04:37:49"
+      }
+    },
+    {
+      "name": "謝宇涵",
+      "bib": "1551",
+      "group": "25-29",
+      "club": "",
+      "overall_str": "12:57:07",
+      "overall_sec": 46627,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1551",
+      "splits": {
+        "swim": "01:27:15",
+        "t1": "00:10:51",
+        "bike": "06:11:25",
+        "t2": "00:12:05",
+        "run": "04:55:29"
+      }
+    },
+    {
+      "name": "傅耕郁",
+      "bib": "1658",
+      "group": "50-54",
+      "club": "",
+      "overall_str": "12:59:11",
+      "overall_sec": 46751,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1658",
+      "splits": {
+        "swim": "01:35:19",
+        "t1": "00:10:31",
+        "bike": "06:07:34",
+        "t2": "00:13:38",
+        "run": "04:52:07"
+      }
+    },
+    {
+      "name": "孔姵涵",
+      "bib": "1628",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "13:00:07",
+      "overall_sec": 46807,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1628",
+      "splits": {
+        "swim": "01:42:46",
+        "t1": "00:18:02",
+        "bike": "06:11:02",
+        "t2": "00:10:03",
+        "run": "04:38:12"
+      }
+    },
+    {
+      "name": "劉于甄",
+      "bib": "1611",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "13:00:55",
+      "overall_sec": 46855,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1611",
+      "splits": {
+        "swim": "01:53:13",
+        "t1": "00:16:10",
+        "bike": "06:13:49",
+        "t2": "00:09:14",
+        "run": "04:28:26"
+      }
+    },
+    {
+      "name": "林靖茹",
+      "bib": "1633",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "13:02:47",
+      "overall_sec": 46967,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1633",
+      "splits": {
+        "swim": "01:47:04",
+        "t1": "00:18:04",
+        "bike": "06:11:43",
+        "t2": "00:12:09",
+        "run": "04:33:44"
+      }
+    },
+    {
+      "name": "施怡君",
+      "bib": "1656",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "13:03:41",
+      "overall_sec": 47021,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1656",
+      "splits": {
+        "swim": "01:36:17",
+        "t1": "00:13:05",
+        "bike": "06:13:26",
+        "t2": "00:14:25",
+        "run": "04:46:26"
+      }
+    },
+    {
+      "name": "邱美玲",
+      "bib": "1619",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "13:04:06",
+      "overall_sec": 47046,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1619",
+      "splits": {
+        "swim": "01:46:47",
+        "t1": "00:15:21",
+        "bike": "05:47:52",
+        "t2": "00:09:17",
+        "run": "05:04:47"
+      }
+    },
+    {
+      "name": "楊若綺",
+      "bib": "1601",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "13:05:11",
+      "overall_sec": 47111,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1601",
+      "splits": {
+        "swim": "01:44:49",
+        "t1": "00:13:14",
+        "bike": "06:35:36",
+        "t2": "00:12:54",
+        "run": "04:18:37"
+      }
+    },
+    {
+      "name": "林妙霜",
+      "bib": "1631",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "13:08:45",
+      "overall_sec": 47325,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1631",
+      "splits": {
+        "swim": "01:57:23",
+        "t1": "00:16:37",
+        "bike": "06:37:37",
+        "t2": "00:11:02",
+        "run": "04:06:04"
+      }
+    },
+    {
+      "name": "蔣漢琳",
+      "bib": "1647",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "13:09:50",
+      "overall_sec": 47390,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1647",
+      "splits": {
+        "swim": "01:49:55",
+        "t1": "00:13:10",
+        "bike": "06:24:15",
+        "t2": "00:08:12",
+        "run": "04:34:16"
+      }
+    },
+    {
+      "name": "黃子芸",
+      "bib": "1575",
+      "group": "30-34",
+      "club": "",
+      "overall_str": "13:21:00",
+      "overall_sec": 48060,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1575",
+      "splits": {
+        "swim": "01:51:48",
+        "t1": "00:14:06",
+        "bike": "05:51:17",
+        "t2": "00:09:00",
+        "run": "05:14:48"
+      }
+    },
+    {
+      "name": "彭兆嬿",
+      "bib": "1555",
+      "group": "25-29",
+      "club": "",
+      "overall_str": "13:22:36",
+      "overall_sec": 48156,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1555",
+      "splits": {
+        "swim": "01:23:18",
+        "t1": "00:12:35",
+        "bike": "06:53:40",
+        "t2": "00:13:02",
+        "run": "04:39:59"
+      }
+    },
+    {
+      "name": "尤惠美",
+      "bib": "1634",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "13:24:28",
+      "overall_sec": 48268,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1634",
+      "splits": {
+        "swim": "01:52:01",
+        "t1": "00:20:42",
+        "bike": "06:23:59",
+        "t2": "00:15:14",
+        "run": "04:32:31"
+      }
+    },
+    {
+      "name": "鍾素媚",
+      "bib": "1674",
+      "group": "50-54",
+      "club": "",
+      "overall_str": "13:26:52",
+      "overall_sec": 48412,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1674",
+      "splits": {
+        "swim": "01:31:51",
+        "t1": "00:16:09",
+        "bike": "06:18:51",
+        "t2": "00:10:53",
+        "run": "05:09:07"
+      }
+    },
+    {
+      "name": "王盈琇",
+      "bib": "1589",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "13:27:54",
+      "overall_sec": 48474,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1589",
+      "splits": {
+        "swim": "01:31:11",
+        "t1": "00:21:23",
+        "bike": "06:34:40",
+        "t2": "00:30:25",
+        "run": "04:30:12"
+      }
+    },
+    {
+      "name": "蔡思敏",
+      "bib": "1584",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "13:34:04",
+      "overall_sec": 48844,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1584",
+      "splits": {
+        "swim": "01:18:53",
+        "t1": "00:14:03",
+        "bike": "06:28:30",
+        "t2": "00:12:54",
+        "run": "05:19:41"
+      }
+    },
+    {
+      "name": "KUA JINGXUAN",
+      "bib": "1550",
+      "group": "25-29",
+      "club": "",
+      "overall_str": "13:37:38",
+      "overall_sec": 49058,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1550",
+      "splits": {
+        "swim": "02:04:22",
+        "t1": "00:22:25",
+        "bike": "06:16:26",
+        "t2": "00:18:13",
+        "run": "04:36:10"
+      }
+    },
+    {
+      "name": "李文雀",
+      "bib": "1679",
+      "group": "60-64",
+      "club": "",
+      "overall_str": "13:38:12",
+      "overall_sec": 49092,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1679",
+      "splits": {
+        "swim": "01:28:19",
+        "t1": "00:13:35",
+        "bike": "06:37:08",
+        "t2": "00:10:45",
+        "run": "05:08:24"
+      }
+    },
+    {
+      "name": "李佳恩",
+      "bib": "1586",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "13:39:02",
+      "overall_sec": 49142,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1586",
+      "splits": {
+        "swim": "01:29:05",
+        "t1": "00:11:57",
+        "bike": "06:33:28",
+        "t2": "00:06:05",
+        "run": "05:18:25"
+      }
+    },
+    {
+      "name": "簡智雯",
+      "bib": "1646",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "13:46:31",
+      "overall_sec": 49591,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1646",
+      "splits": {
+        "swim": "01:47:59",
+        "t1": "00:15:57",
+        "bike": "06:21:11",
+        "t2": "00:11:30",
+        "run": "05:09:53"
+      }
+    },
+    {
+      "name": "張以姍",
+      "bib": "1546",
+      "group": "25-29",
+      "club": "",
+      "overall_str": "13:46:48",
+      "overall_sec": 49608,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1546",
+      "splits": {
+        "swim": "01:44:40",
+        "t1": "00:12:28",
+        "bike": "06:46:12",
+        "t2": "00:08:04",
+        "run": "04:55:22"
+      }
+    },
+    {
+      "name": "游淑琄",
+      "bib": "1609",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "13:48:13",
+      "overall_sec": 49693,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1609",
+      "splits": {
+        "swim": "02:01:13",
+        "t1": "00:13:52",
+        "bike": "06:31:11",
+        "t2": "00:07:29",
+        "run": "04:54:26"
+      }
+    },
+    {
+      "name": "謝秋萍",
+      "bib": "1566",
+      "group": "30-34",
+      "club": "",
+      "overall_str": "13:52:36",
+      "overall_sec": 49956,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1566",
+      "splits": {
+        "swim": "01:53:00",
+        "t1": "00:18:20",
+        "bike": "06:24:11",
+        "t2": "00:14:34",
+        "run": "05:02:30"
+      }
+    },
+    {
+      "name": "黃秋娥",
+      "bib": "1676",
+      "group": "50-54",
+      "club": "",
+      "overall_str": "13:52:48",
+      "overall_sec": 49968,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1676",
+      "splits": {
+        "swim": "01:40:22",
+        "t1": "00:17:39",
+        "bike": "06:35:48",
+        "t2": "00:12:23",
+        "run": "05:06:34"
+      }
+    },
+    {
+      "name": "林姿慧",
+      "bib": "1545",
+      "group": "18-24",
+      "club": "",
+      "overall_str": "13:53:48",
+      "overall_sec": 50028,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1545",
+      "splits": {
+        "swim": "01:23:46",
+        "t1": "00:17:01",
+        "bike": "06:28:12",
+        "t2": "00:15:37",
+        "run": "05:29:10"
+      }
+    },
+    {
+      "name": "李依紋",
+      "bib": "1626",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "13:55:53",
+      "overall_sec": 50153,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1626",
+      "splits": {
+        "swim": "01:59:45",
+        "t1": "00:27:12",
+        "bike": "06:55:11",
+        "t2": "00:15:00",
+        "run": "04:18:43"
+      }
+    },
+    {
+      "name": "周稚庭",
+      "bib": "1564",
+      "group": "30-34",
+      "club": "",
+      "overall_str": "14:01:42",
+      "overall_sec": 50502,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1564",
+      "splits": {
+        "swim": "01:37:11",
+        "t1": "00:20:25",
+        "bike": "06:42:57",
+        "t2": "00:20:25",
+        "run": "05:00:41"
+      }
+    },
+    {
+      "name": "蔡淳璿",
+      "bib": "1596",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "14:02:30",
+      "overall_sec": 50550,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1596",
+      "splits": {
+        "swim": "01:37:32",
+        "t1": "00:11:24",
+        "bike": "06:58:43",
+        "t2": "00:08:35",
+        "run": "05:06:13"
+      }
+    },
+    {
+      "name": "劉芳儒",
+      "bib": "1636",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "14:10:23",
+      "overall_sec": 51023,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1636",
+      "splits": {
+        "swim": "01:44:52",
+        "t1": "00:23:37",
+        "bike": "06:41:17",
+        "t2": "00:15:54",
+        "run": "05:04:40"
+      }
+    },
+    {
+      "name": "陳冠蓁",
+      "bib": "1585",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "14:12:34",
+      "overall_sec": 51154,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1585",
+      "splits": {
+        "swim": "01:20:55",
+        "t1": "00:12:02",
+        "bike": "06:19:06",
+        "t2": "00:07:05",
+        "run": "06:13:23"
+      }
+    },
+    {
+      "name": "蔡佳霖",
+      "bib": "1604",
+      "group": "35-39",
+      "club": "",
+      "overall_str": "14:13:27",
+      "overall_sec": 51207,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1604",
+      "splits": {
+        "swim": "01:56:28",
+        "t1": "00:19:10",
+        "bike": "06:11:53",
+        "t2": "00:15:28",
+        "run": "05:30:26"
+      }
+    },
+    {
+      "name": "陳佩瑄",
+      "bib": "1572",
+      "group": "30-34",
+      "club": "",
+      "overall_str": "14:14:35",
+      "overall_sec": 51275,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1572",
+      "splits": {
+        "swim": "01:34:40",
+        "t1": "00:11:05",
+        "bike": "06:47:14",
+        "t2": "00:07:38",
+        "run": "05:33:56"
+      }
+    },
+    {
+      "name": "謝淑萍",
+      "bib": "1606",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "14:20:28",
+      "overall_sec": 51628,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1606",
+      "splits": {
+        "swim": "01:39:05",
+        "t1": "00:14:51",
+        "bike": "06:33:38",
+        "t2": "00:09:24",
+        "run": "05:43:28"
+      }
+    },
+    {
+      "name": "黃淑珮",
+      "bib": "1663",
+      "group": "50-54",
+      "club": "",
+      "overall_str": "14:21:50",
+      "overall_sec": 51710,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1663",
+      "splits": {
+        "swim": "01:54:22",
+        "t1": "00:14:11",
+        "bike": "06:51:59",
+        "t2": "00:13:50",
+        "run": "05:07:26"
+      }
+    },
+    {
+      "name": "盧淑玲",
+      "bib": "1662",
+      "group": "50-54",
+      "club": "",
+      "overall_str": "14:23:26",
+      "overall_sec": 51806,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1662",
+      "splits": {
+        "swim": "01:50:00",
+        "t1": "00:18:22",
+        "bike": "06:32:12",
+        "t2": "00:17:01",
+        "run": "05:25:49"
+      }
+    },
+    {
+      "name": "陳鈺云",
+      "bib": "1614",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "14:23:34",
+      "overall_sec": 51814,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1614",
+      "splits": {
+        "swim": "02:01:16",
+        "t1": "00:21:08",
+        "bike": "06:29:30",
+        "t2": "00:18:17",
+        "run": "05:13:21"
+      }
+    },
+    {
+      "name": "張殷甄",
+      "bib": "1641",
+      "group": "45-49",
+      "club": "",
+      "overall_str": "14:25:20",
+      "overall_sec": 51920,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1641",
+      "splits": {
+        "swim": "01:45:27",
+        "t1": "00:18:49",
+        "bike": "07:11:13",
+        "t2": "00:18:58",
+        "run": "04:50:52"
+      }
+    },
+    {
+      "name": "楊玉倩",
+      "bib": "1624",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "14:25:41",
+      "overall_sec": 51941,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1624",
+      "splits": {
+        "swim": "01:45:55",
+        "t1": "00:16:05",
+        "bike": "06:10:17",
+        "t2": "00:07:02",
+        "run": "06:06:19"
+      }
+    },
+    {
+      "name": "楊怡芳",
+      "bib": "1617",
+      "group": "40-44",
+      "club": "",
+      "overall_str": "14:26:57",
+      "overall_sec": 52017,
+      "athlete_url": "https://www.sportsplits.com/races/challenge-taiwan-day2-2026/events/1/results/individuals/1617",
+      "splits": {
+        "swim": "01:45:04",
+        "t1": "00:17:50",
+        "bike": "06:32:23",
+        "t2": "00:19:09",
+        "run": "05:32:29"
+      }
+    }
+  ]
+}
